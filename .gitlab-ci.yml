@@ -18,5 +18,5 @@ variables:
   unitTests:
           stage: tests
           script:
-                  - cd Godot/Project
-                  - godot -s addons/gut/gut_cmdln.gd -d --path $PWD -ginclude-subdirs -gdir=res://test -gexit -gprefix=test_
+                - cd Godot/Project
+                - godot -s addons/gut/gut_cmdln.gd -d --path $PWD -ginclude-subdirs -gdir=res://test -gexit -gprefix=test_
