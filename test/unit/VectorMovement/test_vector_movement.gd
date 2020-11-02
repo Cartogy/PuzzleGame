@@ -1,6 +1,6 @@
 extends "res://addons/gut/test.gd"
 
-var VMovement = load("res://Project/Classes/VectorMovement.tscn")
+var VMovement = load("res://Project/Classes/VectorMove.tscn")
 
 func test_forward_interpolation():
 	var vector_movement = VMovement.Instance()

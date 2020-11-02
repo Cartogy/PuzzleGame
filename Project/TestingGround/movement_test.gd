@@ -6,11 +6,6 @@ onready var movement = get_node("VectorMovement")
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_down"):
 		movement.update_forward(Vector2(0,1))

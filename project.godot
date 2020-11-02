@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "DirectionInput",
+"language": "GDScript",
+"path": "res://Project/Classes/DirectionInput/direction_input.gd"
+}, {
+"base": "Node",
 "class": "VectorMovement",
 "language": "GDScript",
 "path": "res://Project/Classes/VectorMovement/vector_movement.gd"
 } ]
 _global_script_class_icons={
+"DirectionInput": "",
 "VectorMovement": ""
 }
 
