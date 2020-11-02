@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "VectorMovement",
 "language": "GDScript",
-"path": "res://Project/Classes/vector_movement.gd"
+"path": "res://Project/Classes/VectorMovement/vector_movement.gd"
 } ]
 _global_script_class_icons={
 "VectorMovement": ""
