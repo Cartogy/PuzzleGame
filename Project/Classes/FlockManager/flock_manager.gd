@@ -7,7 +7,7 @@ class_name FlockManager
 var entities = []
 var direction_input : DirectionInput
 
-var scale = 80
+var scale = 120		# How far away the direction is from the average_center
 
 func _ready():
 	direction_input = get_node("DirectionInput")
@@ -20,7 +20,6 @@ func _physics_process(delta):
 	
 	# Get position from the avg center
 	var new_position = calculate_new_position(direction, avg_center, scale)
-	print(new_position)
 	# Update new position to all entities
 	for e in entities:
 		e.update_follow_position(new_position)
