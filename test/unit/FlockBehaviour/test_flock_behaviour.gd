@@ -24,7 +24,7 @@ func test_calculate_average_center():
 	var e3 = Node2D.new()
 	e3.position = Vector2(8,5)
 	
-	var expected = Vector2(5,3)
+	var expected = Vector2(5.333333,3)
 	var entities = [e1, e2, e3]
 	
 	assert_eq(fm.calculate_average_center(entities), expected)
