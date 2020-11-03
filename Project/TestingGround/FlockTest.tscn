@@ -17,7 +17,11 @@ script = ExtResource( 2 )
 [node name="Flock" type="Node" parent="FlockManager"]
 
 [node name="Unit 0" type="KinematicBody2D" parent="FlockManager/Flock"]
+position = Vector2( 127, 90 )
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="VectorMovement" type="Node" parent="FlockManager/Flock/Unit 0"]
 script = ExtResource( 1 )
@@ -26,21 +30,27 @@ script = ExtResource( 1 )
 texture = ExtResource( 5 )
 
 [node name="Unit 1" type="KinematicBody2D" parent="FlockManager/Flock"]
+position = Vector2( 130, 255 )
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="VectorMovement" type="Node" parent="FlockManager/Flock/Unit 1"]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="FlockManager/Flock/Unit 1"]
-position = Vector2( 84, 148 )
 texture = ExtResource( 5 )
 
 [node name="Unit 2" type="KinematicBody2D" parent="FlockManager/Flock"]
+position = Vector2( 367, 116 )
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="VectorMovement" type="Node" parent="FlockManager/Flock/Unit 2"]
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="FlockManager/Flock/Unit 2"]
-position = Vector2( 259, 91 )
 texture = ExtResource( 5 )

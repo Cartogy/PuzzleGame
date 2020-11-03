@@ -10,7 +10,7 @@ func test_sum_of_positions():
 	var e3 = Node2D.new()
 	e3.position = Vector2(8,5)
 	
-	var expected = (Vector2(15, 9), 3)
+	var expected = [Vector2(15, 9), 3]
 	var entities = [e1, e2, e3]
 	
 	assert_eq(fm.sum_of_positions(entities), expected)

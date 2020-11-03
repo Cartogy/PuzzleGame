@@ -10,9 +10,10 @@ func _ready():
 	
 func _physics_process(delta):
 	var direction = to_position - position
+	#print(direction)
 	vector_movement.update_forward(direction)
 	
-	move_and_slide(vector_movement.forward * 20, Vector2(0,0))
+	move_and_slide(vector_movement.forward * 1, Vector2(0,0))
 
 func update_follow_position(p_position):
 	to_position = p_position
