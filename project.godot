@@ -15,12 +15,24 @@ _global_script_classes=[ {
 "path": "res://Project/Classes/DirectionInput/direction_input.gd"
 }, {
 "base": "Node",
+"class": "FlockBehaviour",
+"language": "GDScript",
+"path": "res://Project/Classes/FlockBehaviour/flock_behaviour.gd"
+}, {
+"base": "Node",
+"class": "Follow",
+"language": "GDScript",
+"path": "res://Project/Classes/FollowBehaviour/follow.gd"
+}, {
+"base": "Node",
 "class": "VectorMovement",
 "language": "GDScript",
 "path": "res://Project/Classes/VectorMovement/vector_movement.gd"
 } ]
 _global_script_class_icons={
 "DirectionInput": "",
+"FlockBehaviour": "",
+"Follow": "",
 "VectorMovement": ""
 }
 
