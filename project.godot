@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Project/Classes/FlockBehaviour/flock_behaviour.gd"
 }, {
 "base": "Node",
+"class": "FlockManager",
+"language": "GDScript",
+"path": "res://Project/Classes/FlockManager/flock_manager.gd"
+}, {
+"base": "Node",
 "class": "Follow",
 "language": "GDScript",
 "path": "res://Project/Classes/FollowBehaviour/follow.gd"
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "DirectionInput": "",
 "FlockBehaviour": "",
+"FlockManager": "",
 "Follow": "",
 "VectorMovement": ""
 }

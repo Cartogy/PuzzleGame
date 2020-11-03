@@ -1,5 +1,7 @@
 extends Node
 
+class_name FlockManager
+
 # Contain all entities that will serve as a horder
 
 var entities = []
@@ -22,7 +24,11 @@ func _physics_process(delta):
 	# Update new position to all entities
 	for e in entities:
 		e.update_follow_position(new_position)
-	
+
+
+
+## Functions to calculate positions
+
 func calculate_new_position(p_direction: Vector2, p_avg_center: Vector2, p_scale: int) -> Vector2:
 	return p_avg_center + (p_direction * p_scale)
 
