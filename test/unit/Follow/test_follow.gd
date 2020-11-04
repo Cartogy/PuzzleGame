@@ -8,7 +8,7 @@ func test_point_behind():
 	
 	# test values
 	var follow_pos = Vector2(2,2)
-	var follow_forward = Vector2(1,0)
+	var follow_forward = Vector2(0,1)
 	var radius = 1
 	
 	var value = follow.point_behind_follow(follow_pos, follow_forward, radius)
