@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Project/Classes/Unit/unit.gd" type="Script" id=1]
+[ext_resource path="res://Project/GameScenes/Unit/unit.gd" type="Script" id=1]
 [ext_resource path="res://Project/Classes/VectorMovement/vector_movement.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Project/Classes/Avoidance/avoidance.gd" type="Script" id=4]
+[ext_resource path="res://Project/Classes/FlockBehaviour/flock_behaviour.gd" type="Script" id=5]
+[ext_resource path="res://Project/Classes/Follow/follow.gd" type="Script" id=6]
+[ext_resource path="res://Project/Classes/StateMachine/state_machine.gd" type="Script" id=7]
+[ext_resource path="res://Project/GameScenes/Unit/States/follow_state.gd" type="Script" id=8]
+[ext_resource path="res://Project/GameScenes/Unit/States/flock_state.gd" type="Script" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 57.3328
@@ -21,6 +26,12 @@ __meta__ = {
 [node name="VectorMovement" type="Node" parent="."]
 script = ExtResource( 2 )
 
+[node name="Follow" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="Flock" type="Node" parent="."]
+script = ExtResource( 5 )
+
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 
@@ -32,5 +43,15 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 7 )
+START_STATE = NodePath("FlockState")
+
+[node name="FollowState" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
+
+[node name="FlockState" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
 [connection signal="body_entered" from="Avoidance" to="Avoidance" method="_on_Avoidance_body_entered"]
 [connection signal="body_exited" from="Avoidance" to="Avoidance" method="_on_Avoidance_body_exited"]
