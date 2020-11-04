@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Follow",
 "language": "GDScript",
-"path": "res://Project/Classes/FollowBehaviour/follow.gd"
+"path": "res://Project/Classes/Follow/follow.gd"
 }, {
 "base": "Node",
 "class": "VectorMovement",
