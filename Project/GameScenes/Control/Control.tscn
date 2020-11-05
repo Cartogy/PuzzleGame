@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Project/Classes/StateMachine/state_machine.gd" type="Script" id=1]
+[ext_resource path="res://Project/GameScenes/Control/control.gd" type="Script" id=2]
+[ext_resource path="res://Project/GameScenes/Control/ControlStates/duck_control_state.gd" type="Script" id=3]
+[ext_resource path="res://Project/GameScenes/Control/ControlStates/flock_control_state.gd" type="Script" id=4]
+
+
+
+[node name="Control" type="Node"]
+script = ExtResource( 2 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+START_STATE = NodePath("Duck")
+
+[node name="Duck" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+
+[node name="Flock" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )

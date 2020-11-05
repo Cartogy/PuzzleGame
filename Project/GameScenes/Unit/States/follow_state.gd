@@ -10,6 +10,9 @@ func _ready():
 func enter() -> void:
 	pass
 
+func handle_input(event):
+	pass
+
 func tick(delta: float):
 	var follow_position = follow_mechanic.following.get_parent().position
 	var direction = follow_mechanic.direction_to_follow(unit.position, follow_position)
@@ -21,3 +24,6 @@ func tick(delta: float):
 	
 func exit() -> void:
 	pass
+
+func get_state_type():
+	return "Follow"

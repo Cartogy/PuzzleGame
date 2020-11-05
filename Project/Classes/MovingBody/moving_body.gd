@@ -13,3 +13,8 @@ func _physics_process(delta):
 	
 	move_and_slide(movement.forward * 200, Vector2(0,0))
 	
+func deactivate():
+	self.set_physics_process(false)
+	
+func activate():
+	self.set_physics_process(true)

@@ -5,8 +5,9 @@ class_name State
 func _ready():
 	pass
 	
-func input_handler(event):
-	pass
+#func handle_input(event):
+#	print("Base State Input")
+#	pass
 
 func enter():
 	pass

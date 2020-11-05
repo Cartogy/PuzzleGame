@@ -53,3 +53,11 @@ func sum_of_positions(p_entities: Array) -> Array:
 	var tuple = [sum, count]
 		
 	return tuple
+
+func deactivate():
+	for e in entities:
+		e.set_physics_process(false)
+		
+func activate():
+	for e in entities:
+		e.set_physics_process(true)

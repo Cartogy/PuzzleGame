@@ -14,6 +14,9 @@ func _ready():
 func enter() -> void:
 	pass
 	
+func handle_input(event):
+	pass
+	
 func tick(delta: float):
 	## Get direction
 	var direction = unit.to_position - unit.position
@@ -27,3 +30,5 @@ func tick(delta: float):
 func exit() -> void:
 	pass
 	
+func get_state_type():
+	return "Flock"
