@@ -11,22 +11,23 @@ var scale = 120		# How far away the direction is from the average_center
 
 func _ready():
 	direction_input = get_node("DirectionInput")
+	var following = null
 	for child in get_node("Flock").get_children():
 		entities.append(child)
+		if following == null:
+			following = child.get_node("VectorMovement")
+		else:
+			child.set_follow(following)
+			following = child.get_node("VectorMovement")
+		
 	
 func _physics_process(delta):
-	var avg_center = calculate_average_center(entities)
-	var direction = direction_input.get_input()
-	
-	# Get position from the avg center
-	var new_position = calculate_new_position(direction, avg_center, scale)
-	# Update new position to all entities
-	for e in entities:
-		e.update_follow_position(new_position)
+	$StateMachine.tick(delta)
 
 
-
-## Functions to calculate positions
+######################################
+## Functions to calculate positions ##
+######################################
 
 func calculate_new_position(p_direction: Vector2, p_avg_center: Vector2, p_scale: int) -> Vector2:
 	return p_avg_center + (p_direction * p_scale)
@@ -53,6 +54,19 @@ func sum_of_positions(p_entities: Array) -> Array:
 	var tuple = [sum, count]
 		
 	return tuple
+	
+########################
+#   State Transitions  #
+########################
+func follow():
+	$StateMachine.change_state("Follow")
+		
+func flock():
+	$StateMachine.change_state("Flock")
+
+func idle():
+	$StateMachine.change_state("Idle")
+#########################
 
 func deactivate():
 	for e in entities:

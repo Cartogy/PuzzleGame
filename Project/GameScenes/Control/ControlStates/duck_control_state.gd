@@ -1,4 +1,4 @@
-extends "control_state.gd"
+extends "../control_state.gd"
 
 export (NodePath) var duck_path
 
@@ -10,6 +10,9 @@ func _ready():
 
 func handle_input(event):
 	.handle_input(event)
+
+func _physics_process(delta):
+	pass
 
 func enter():
 	control_entity.activate()

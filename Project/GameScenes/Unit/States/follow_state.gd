@@ -8,17 +8,19 @@ func _ready():
 	follow_mechanic = unit.get_node("Follow")
 
 func enter() -> void:
-	pass
+	if unit.is_physics_processing() == false:
+		unit.set_physics_process(true)
 
 func handle_input(event):
 	pass
 
 func tick(delta: float):
-	var follow_position = follow_mechanic.following.get_parent().position
-	var direction = follow_mechanic.direction_to_follow(unit.position, follow_position)
-	
-	unit.vector_movement.update_forward(direction)
-	unit.move_and_slide(unit.vector_movement.forward, Vector2(0,0))
+	if follow_mechanic.following != null:
+		var follow_position = follow_mechanic.following.get_parent().position
+		var direction = follow_mechanic.direction_to_follow(unit.position, follow_position)
+
+		unit.vector_movement.update_forward(direction)
+		unit.move_and_slide(unit.vector_movement.forward * 110, Vector2(0,0))
 	
 	return null
 	

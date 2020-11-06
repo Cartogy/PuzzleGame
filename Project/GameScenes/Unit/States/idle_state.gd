@@ -9,20 +9,17 @@ func _ready():
 	flock_mechanic = unit.get_node("Flock")
 
 func enter() -> void:
-	if unit.is_physics_processing() == false:
-		unit.set_physics_process(true)
+	if unit.is_physics_processing():
+		unit.set_physics_process(false)
 	
 func handle_input(event):
 	pass
 	
 func tick(delta: float):
-	var direction = unit.to_position - unit.position
-	unit.vector_movement.update_forward(direction)
-	
-	unit.move_and_slide(unit.vector_movement.forward * 10, Vector2(0,0))
+	return
 	
 func exit() -> void:
 	pass
 	
 func get_state_type():
-	return "Flock"
+	return "Idle"

@@ -1,4 +1,4 @@
-extends "control_state.gd"
+extends "../control_state.gd"
 
 export (NodePath) var flock_path
 
@@ -14,7 +14,8 @@ func handle_input(event):
 		emit_signal("switch_state", transfer_state)
 
 func enter():
-	control_entity.activate()
+	control_entity.flock()
+	control_entity.set_physics_process(true)
 	
 func tick(delta):
 	pass

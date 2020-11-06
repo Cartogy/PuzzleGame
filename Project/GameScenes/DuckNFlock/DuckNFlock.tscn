@@ -6,7 +6,7 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+[node name="Duck" parent="." instance=ExtResource( 2 )]
 
 [node name="FlockManager" parent="." instance=ExtResource( 3 )]
 
@@ -14,7 +14,20 @@
 
 [node name="Duck" parent="Control/StateMachine" index="0"]
 transfer_state = "FlockControl"
-duck_path = NodePath("../../../KinematicBody2D")
+duck_path = NodePath("../../../Duck")
+
+[node name="StateMachine" parent="Control/StateMachine/Duck" index="0"]
+START_STATE = NodePath("WaddleAlone")
+
+[node name="WaddleAlone" parent="Control/StateMachine/Duck/StateMachine" index="0"]
+transfer_state = "WaddleTogether"
+duck_path = NodePath("../../../../../Duck")
+flock_path = NodePath("../../../../../FlockManager")
+
+[node name="WaddleTogether" parent="Control/StateMachine/Duck/StateMachine" index="1"]
+transfer_state = "WaddleAlone"
+duck_path = NodePath("../../../../../Duck")
+flock_path = NodePath("../../../../../FlockManager")
 
 [node name="Flock" parent="Control/StateMachine" index="1"]
 transfer_state = "DuckControl"
