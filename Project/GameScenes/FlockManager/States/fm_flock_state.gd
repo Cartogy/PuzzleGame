@@ -14,7 +14,6 @@ func enter():
 		e.flock()
 	
 func tick(delta):
-	print("FLOCKING")
 	var avg_center = flock.calculate_average_center(flock.entities)
 	var direction = flock.direction_input.get_input()
 	

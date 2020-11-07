@@ -7,7 +7,6 @@ func _ready():
 	if flock_path == null:
 		printerr("Path to entity: NULL")
 	control_entity = get_node(flock_path)
-	print(control_entity)
 
 func handle_input(event):
 	if event.is_action_pressed("control_switch"):

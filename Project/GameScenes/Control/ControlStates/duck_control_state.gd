@@ -16,9 +16,14 @@ func _physics_process(delta):
 
 func enter():
 	control_entity.activate()
+	$StateMachine.set_process_input(true)
+	print($StateMachine.is_processing_input())
 	
 func exit():
 	control_entity.deactivate()
+	#$StateMachine.set_block_signals(true)
+	$StateMachine.set_process_input(false)
+	print($StateMachine.is_processing_input())
 
 func get_state_type():
 	return "DuckControl"
