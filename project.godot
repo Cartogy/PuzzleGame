@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "FlockManager",
 "language": "GDScript",
-"path": "res://Project/Classes/FlockManager/flock_manager.gd"
+"path": "res://Project/GameScenes/FlockManager/flock_manager.gd"
 }, {
 "base": "Node",
 "class": "Follow",

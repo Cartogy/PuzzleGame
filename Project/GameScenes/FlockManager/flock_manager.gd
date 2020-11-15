@@ -60,6 +60,7 @@ func sum_of_positions(p_entities: Array) -> Array:
 ########################
 func follow():
 	$StateMachine.change_state("Follow")
+	print("Flock Follow")
 		
 func flock():
 	$StateMachine.change_state("Flock")

@@ -10,6 +10,7 @@ func handle_input(event):
 	pass
 
 func enter():
+	print("Preparing to Follow entities")
 	for e in flock.entities:
 		e.follow()
 	

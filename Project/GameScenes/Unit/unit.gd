@@ -27,6 +27,7 @@ func set_follow(following: VectorMovement) -> void:
 
 func follow():
 	$StateMachine.change_state("Follow")
+	print("Unit Following")
 	
 func flock():
 	$StateMachine.change_state("Flock")

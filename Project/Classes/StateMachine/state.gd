@@ -2,6 +2,8 @@ extends Node
 
 class_name State
 
+var state_type : String
+
 func _ready():
 	pass
 	
@@ -19,4 +21,7 @@ func exit():
 	pass
 	
 func get_state_type():
-	pass
+	return state_type
+	
+func set_state_type(t: String) -> void:
+	state_type = t

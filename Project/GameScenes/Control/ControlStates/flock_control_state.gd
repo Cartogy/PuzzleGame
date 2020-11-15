@@ -16,7 +16,7 @@ func enter():
 	control_entity.flock()
 	control_entity.set_physics_process(true)
 	
-func tick(delta):
+func tick(_delta):
 	pass
 	
 func exit():

@@ -1,5 +1,7 @@
 extends "../control_state.gd"
 
+# Have control state contain the switches and state to transition towards
+
 export (NodePath) var duck_path
 export (NodePath) var flock_path
 

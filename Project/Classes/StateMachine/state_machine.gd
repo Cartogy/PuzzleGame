@@ -21,10 +21,21 @@ func tick(delta):
 		change_state(next_state)
 	
 func change_state(state):
-	current_state.exit()
-	current_state = states[state]
-	current_state.enter()
+	
+	var tmp_state = get_state(state)
+	if tmp_state != null:
+		current_state.exit()
+		current_state = tmp_state
+		current_state.enter()
 
 func initialize(start_state):
 	current_state = states[get_node(start_state).get_state_type()]
 	current_state.enter()
+
+func add_state(state: State) -> void:
+	states[state.get_state_type()] = state
+
+func get_state(state) -> State:
+	if states.has(state):
+		return states[state]
+	return null

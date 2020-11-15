@@ -1,8 +1,9 @@
 extends "res://addons/gut/test.gd"
 
+const TFlockManager = preload("res://Project/GameScenes/FlockManager/flock_manager.gd")
 
 func test_sum_of_positions():
-	var fm = FlockManager.new()
+	var fm = TFlockManager.new()
 	var e1 = Node2D.new()
 	e1.position = Vector2(5,0)
 	var e2 = Node2D.new()
@@ -16,7 +17,7 @@ func test_sum_of_positions():
 	assert_eq(fm.sum_of_positions(entities), expected)
 	
 func test_calculate_average_center():
-	var fm = FlockManager.new()
+	var fm = TFlockManager.new()
 	var e1 = Node2D.new()
 	e1.position = Vector2(6,0)
 	var e2 = Node2D.new()
@@ -33,7 +34,7 @@ func test_calculate_average_center():
 	assert_eq(value, expected)
 	
 func test_calulate_new_position():
-	var fm = FlockManager.new()
+	var fm = TFlockManager.new()
 	
 	var avg_center = Vector2(0,0)
 	var direction = Vector2(0,0)
@@ -44,7 +45,7 @@ func test_calulate_new_position():
 	assert_eq(fm.calculate_new_position(direction, avg_center, scale), expected)
 	
 func test_calulate_new_position_two():
-	var fm = FlockManager.new()
+	var fm = TFlockManager.new()
 	
 	var avg_center = Vector2(5,3)
 	var direction = Vector2(0,0)
