@@ -18,11 +18,11 @@ func handle_input(event):
 
 func tick(delta: float):
 	if follow_mechanic.following != null:
-		var follow_position = follow_mechanic.following.get_parent().position
+		var follow_position = follow_mechanic.following.position
 		var direction = follow_mechanic.direction_to_follow(unit.position, follow_position)
 
-		unit.vector_movement.update_forward(direction)
-		unit.move_and_slide(unit.vector_movement.forward * 110, Vector2(0,0))
+		unit.update_forward(direction)
+		unit.move_and_slide(unit.forward * 110, Vector2(0,0))
 	
 	return null
 	

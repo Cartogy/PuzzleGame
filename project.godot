@@ -44,7 +44,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Project/GameScenes/Unit/unit.gd"
 }, {
-"base": "Node",
+"base": "KinematicBody2D",
 "class": "VectorMovement",
 "language": "GDScript",
 "path": "res://Project/Classes/VectorMovement/vector_movement.gd"

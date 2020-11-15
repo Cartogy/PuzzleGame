@@ -15,10 +15,10 @@ func _ready():
 	for child in get_node("Flock").get_children():
 		entities.append(child)
 		if following == null:
-			following = child.get_node("VectorMovement")
+			following = child
 		else:
 			child.set_follow(following)
-			following = child.get_node("VectorMovement")
+			following = child
 		
 	
 func _physics_process(delta):

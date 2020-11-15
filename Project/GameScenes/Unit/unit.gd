@@ -1,15 +1,14 @@
-extends KinematicBody2D
+extends "res://Project/Classes/VectorMovement/vector_movement.gd"
 
 # Unit is moving towards a given direction.
 
 class_name Unit
 
-var vector_movement : VectorMovement
 var to_position : Vector2
 
 
 func _ready():
-	vector_movement = get_node("VectorMovement")
+	._ready()
 	
 func _physics_process(delta) -> void:
 	$StateMachine.tick(delta)
