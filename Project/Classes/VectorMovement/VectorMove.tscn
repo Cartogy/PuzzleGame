@@ -2,5 +2,5 @@
 
 [ext_resource path="res://Project/Classes/VectorMovement/vector_movement.gd" type="Script" id=1]
 
-[node name="VectorMovement" type="Node"]
+[node name="VectorMovement" type="KinematicBody2D"]
 script = ExtResource( 1 )
