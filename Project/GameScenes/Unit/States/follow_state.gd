@@ -8,10 +8,9 @@ func _ready():
 	follow_mechanic = unit.get_node("Follow")
 
 func enter() -> void:
-	print("Unit in FOllowing State")
+	print("[Unit] Following")
 	if unit.is_physics_processing() == false:
 		unit.set_physics_process(true)
-	print(unit.is_physics_processing())
 
 func handle_input(event):
 	pass

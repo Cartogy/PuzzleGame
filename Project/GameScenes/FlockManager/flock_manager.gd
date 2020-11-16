@@ -19,7 +19,8 @@ func _ready():
 		else:
 			child.set_follow(following)
 			following = child
-		
+			
+	$StateMachine.initialize($StateMachine.START_STATE)
 	
 func _physics_process(delta):
 	$StateMachine.tick(delta)
@@ -60,7 +61,6 @@ func sum_of_positions(p_entities: Array) -> Array:
 ########################
 func follow():
 	$StateMachine.change_state("Follow")
-	print("Flock Follow")
 		
 func flock():
 	$StateMachine.change_state("Flock")

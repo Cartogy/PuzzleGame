@@ -9,6 +9,7 @@ var to_position : Vector2
 
 func _ready():
 	._ready()
+	$StateMachine.initialize($StateMachine.START_STATE)
 	
 func _physics_process(delta) -> void:
 	$StateMachine.tick(delta)
@@ -26,7 +27,6 @@ func set_follow(following: VectorMovement) -> void:
 
 func follow():
 	$StateMachine.change_state("Follow")
-	print("Unit Following")
 	
 func flock():
 	$StateMachine.change_state("Flock")

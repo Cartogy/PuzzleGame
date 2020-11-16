@@ -1,7 +1,7 @@
 extends Node
 
 func _ready():
-	get_parent().get_node("FlockManager").deactivate()
+	$StateMachine.initialize($StateMachine.START_STATE)
 
 func _input(event):
 	pass

@@ -15,7 +15,6 @@ func handle_input(event):
 	.handle_input(event)
 
 func enter():
-	print("Follow")
 	flock.follow()
 	
 func exit():

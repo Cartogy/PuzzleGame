@@ -10,6 +10,7 @@ func handle_input(event):
 	pass
 
 func enter():
+	print("[FlockingManager] Flocking")
 	for e in flock.entities:
 		e.flock()
 	

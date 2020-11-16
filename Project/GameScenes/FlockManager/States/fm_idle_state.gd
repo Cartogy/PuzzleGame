@@ -9,6 +9,7 @@ func handle_input(event):
 	pass
 
 func enter():
+	print("[FlockManager] Idle")
 	for e in flock.entities:
 		e.idle()
 	

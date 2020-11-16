@@ -9,8 +9,11 @@ func _ready():
 	pass
 	
 	
+##############################
+##  Following Calculations  ##
+##############################
 
-## Main function to calculate direction to follow
+# Main function to calculate direction to follow
 func direction_to_follow(p_position: Vector2, follow_position: Vector2) -> Vector2:
 	var point_behind = point_behind_follow(follow_position, following.forward, radius)
 	var direction_to_follow = direction_behind(p_position, point_behind)
