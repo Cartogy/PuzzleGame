@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "",
+"class": "ConsumerReceiver",
+"language": "GDScript",
+"path": "res://Project/Classes/InputReceiverSystem/Receiver/consumer_receiver.gd"
+}, {
+"base": "",
+"class": "DestroyerReceiver",
+"language": "GDScript",
+"path": "res://Project/Classes/InputReceiverSystem/Receiver/destroyer_receiver.gd"
+}, {
 "base": "Node",
 "class": "DirectionInput",
 "language": "GDScript",
@@ -28,6 +38,16 @@ _global_script_classes=[ {
 "class": "Follow",
 "language": "GDScript",
 "path": "res://Project/Classes/Follow/follow.gd"
+}, {
+"base": "Node2D",
+"class": "InputGenerator",
+"language": "GDScript",
+"path": "res://Project/Classes/InputReceiverSystem/Input/input_generator.gd"
+}, {
+"base": "Node",
+"class": "Receiver",
+"language": "GDScript",
+"path": "res://Project/Classes/InputReceiverSystem/Receiver/receiver.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -50,10 +70,14 @@ _global_script_classes=[ {
 "path": "res://Project/Classes/VectorMovement/vector_movement.gd"
 } ]
 _global_script_class_icons={
+"ConsumerReceiver": "",
+"DestroyerReceiver": "",
 "DirectionInput": "",
 "FlockBehaviour": "",
 "FlockManager": "",
 "Follow": "",
+"InputGenerator": "",
+"Receiver": "",
 "State": "",
 "StateMachine": "",
 "Unit": "",
