@@ -10,4 +10,7 @@ func receive_input(i: InputGenerator) -> void:
 		effect(current_state)
 
 func valid_input(i: InputGenerator) -> bool:
-	return false
+	if i == key:
+		return true
+	else:
+		return false

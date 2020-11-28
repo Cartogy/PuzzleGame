@@ -3,9 +3,12 @@ extends "input_generator.gd"
 var on_state = false
 enum Switch_State { ON, OFF }
 
-export (Switch_State) var current_state
+var bodies_on: Array
+
+var current_state
 
 func _ready():
+	current_state = Switch_State.OFF
 	match current_state:
 		Switch_State.ON:
 			turn_on()
@@ -46,8 +49,11 @@ func turn_off():
 func _on_Area2D_body_entered(body):
 	if current_state != Switch_State.ON:
 		pass_input(self)
+	bodies_on.append(body)
 
 
 func _on_Area2D_body_exited(body):
-	if current_state != Switch_State.OFF:
-		pass_input(self)
+	bodies_on.erase(body)
+	if bodies_on.size() == 0:
+		if current_state != Switch_State.OFF:
+			pass_input(self)
