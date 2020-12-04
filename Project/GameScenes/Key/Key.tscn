@@ -1,12 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Project/Classes/InputReceiverSystem/Input/key_input_generator.gd" type="Script" id=1]
+[ext_resource path="res://Project/Textures/old_textures/Items/Item_0.png" type="Texture" id=2]
 
-[node name="Key" type="Node2D"]
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 7.50756
+
+[node name="Key" type="Node2D" groups=[
+"Key",
+]]
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 0.745 )
+shape = SubResource( 2 )

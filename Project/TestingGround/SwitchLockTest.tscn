@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Project/GameScenes/Switch/Switch.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Project/GameScenes/Receivers/Barrier/Barrier.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Project/GameScenes/Receivers/Lock/Lock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Project/GameScenes/Key/Key.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Project/GameScenes/DuckNFlock/DuckNFlock.tscn" type="PackedScene" id=5]
+
+[node name="SwitchLockTest" type="Node2D"]
+
+[node name="Switch0_Barr1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 245.893, 39.1777 )
+scale = Vector2( 5, 5 )
+
+[node name="Switch1_Barr1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 191.856, 179.038 )
+scale = Vector2( 5, 5 )
+
+[node name="Barrier_1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 456.752, 68.0799 )
+scale = Vector2( 5, 5 )
+on_effect_path = NodePath("../Barrier_1/Effects/Open")
+off_effect_path = NodePath("../Barrier_1/Effects/Closed")
+inputs_to_receive = [ NodePath("../Switch0_Barr1"), NodePath("../Switch1_Barr1") ]
+
+[node name="Switch2_Barr2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64.444, 251.718 )
+scale = Vector2( 5, 5 )
+
+[node name="Switch3_Barr2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 193.817, 254.099 )
+scale = Vector2( 5, 5 )
+
+[node name="Barrier_2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 341, 329.823 )
+scale = Vector2( 5, 5 )
+on_effect_path = NodePath("../Barrier_2/Effects/Open")
+off_effect_path = NodePath("../Barrier_2/Effects/Closed")
+current_state = 1
+inputs_to_receive = [ NodePath("../Switch2_Barr2"), NodePath("../Switch3_Barr2") ]
+
+[node name="Switch4_Barr3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 83.4928, 397.759 )
+scale = Vector2( 5, 5 )
+
+[node name="Barrier3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 132.548, 501.619 )
+scale = Vector2( 5, 5 )
+inputs_to_receive = [ NodePath("../Switch4_Barr3") ]
+
+[node name="Lock" parent="." instance=ExtResource( 3 )]
+position = Vector2( 689.555, 119.381 )
+scale = Vector2( 4, 4 )
+key_path = NodePath("../Key")
+
+[node name="Key" parent="." instance=ExtResource( 4 )]
+position = Vector2( 733.677, 303.657 )
+
+[node name="DuckControl" parent="." instance=ExtResource( 5 )]
+position = Vector2( 29.7414, 28.1319 )

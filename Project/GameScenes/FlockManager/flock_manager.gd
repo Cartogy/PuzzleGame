@@ -76,3 +76,6 @@ func deactivate():
 func activate():
 	for e in entities:
 		e.set_physics_process(true)
+
+func get_position() -> Vector2:
+	return calculate_average_center(entities)
