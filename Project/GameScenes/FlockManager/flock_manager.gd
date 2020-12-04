@@ -8,17 +8,15 @@ var entities = []
 var direction_input : DirectionInput
 
 var scale = 120		# How far away the direction is from the average_center
+onready var target: Node2D = get_node(target_path)
+export var target_path: = NodePath()
 
 func _ready():
 	direction_input = get_node("DirectionInput")
 	var following = null
 	for child in get_node("Flock").get_children():
 		entities.append(child)
-		if following == null:
-			following = child
-		else:
-			child.set_follow(following)
-			following = child
+		child.set_target(target)
 			
 	$StateMachine.initialize($StateMachine.START_STATE)
 	
