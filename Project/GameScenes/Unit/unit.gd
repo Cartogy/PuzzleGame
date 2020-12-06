@@ -4,6 +4,7 @@ extends "res://Project/Classes/VectorMovement/vector_movement.gd"
 
 class_name Unit
 
+var to_position: Vector2	# Used in flock movement
 var target: Node2D 
 
 const ARRIVE_THRESHOLD: = 100.0
@@ -20,6 +21,9 @@ func _ready():
 
 func set_target(targ: Node2D) -> void:
 	target = targ
+
+func update_follow_position(p_position: Vector2):
+	to_position = p_position
 	
 func _physics_process(delta) -> void:
 	$StateMachine.tick(delta)
