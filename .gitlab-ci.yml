@@ -52,4 +52,4 @@ itch:
     script:
         - butler push build/web $ITCHIO_NAME:web-stable
     only:
-        - master
+        - main
