@@ -13,6 +13,7 @@ stages:
 
 variables:
   EXPORT_NAME: flock_of_ducks
+  ITCHIO_NAME: jonas1426/flock-of-ducks
 
 
 unitTests:
@@ -43,3 +44,12 @@ pages:
             - public
     only:
         - develop
+
+itch:
+    stage: deploy
+    dependencies:
+        - web
+    script:
+        - butler push build/web $ITCHIO_NAME:web-stable
+    only:
+        - master
