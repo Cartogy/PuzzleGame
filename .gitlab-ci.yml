@@ -9,7 +9,7 @@ image: barichello/godot-ci:3.2.3
 stages:
   - tests
   - export
-    #  - deploy
+  - deploy
 
 variables:
   EXPORT_NAME: flock_of_ducks
