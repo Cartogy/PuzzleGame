@@ -93,6 +93,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Puzzle Game"
+run/main_scene="res://Project/GameScenes/DuckNFlock/DuckNFlock.tscn"
 config/icon="res://icon.png"
 
 [autoload]
