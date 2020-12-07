@@ -8,11 +8,11 @@ image: barichello/godot-ci:3.2.3
 
 stages:
   - tests
-    #- export
+  - export
     #  - deploy
 
 variables:
-  EXPORT_NAME: test-project
+  EXPORT_NAME: flock_of_ducks
 
 
 unitTests:
@@ -20,3 +20,26 @@ unitTests:
         script:
                 #- cd Godot/Project
                 - godot -s addons/gut/gut_cmdln.gd -d --path $PWD -ginclude_subdirs -gdir=res://test -gexit -gprefix=test_
+
+web:
+    stage: export
+    script:
+        - mkdir -v -p build/web
+        - godot -v --export "HTML5" ./build/web/index.html
+    artifacts:
+        name: $EXPORT_NAME-$CI_JOB_NAME
+        paths:
+            - build/web
+
+pages:
+    stage: deploy
+    dependencies:
+        - web
+    script:
+        - rm -rf public
+        - cp -r build/web public
+    artifacts:
+        paths:
+            - public
+    only:
+        - develop
