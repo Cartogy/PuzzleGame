@@ -17,7 +17,6 @@ radius = 57.3328
 extents = Vector2( 23.5506, 23.7554 )
 
 [node name="Unit 0" type="KinematicBody2D"]
-position = Vector2( 127, 90 )
 z_index = -1
 collision_layer = 2
 collision_mask = 2147483654
