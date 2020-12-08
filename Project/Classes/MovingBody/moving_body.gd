@@ -14,6 +14,9 @@ func _physics_process(delta):
 	var direction = direction_input.get_input()
 	update_forward(direction)
 	
+	print("[Duck forward]")
+	print(forward)
+	
 	move_and_slide(forward * 200, Vector2(0,0))
 	
 func deactivate():
