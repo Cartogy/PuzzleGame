@@ -22,6 +22,7 @@ scale = Vector2( 5, 5 )
 on_effect_path = NodePath("../Barrier_1/Effects/Open")
 off_effect_path = NodePath("../Barrier_1/Effects/Closed")
 inputs_to_receive = [ NodePath("../Switch0_Barr1"), NodePath("../Switch1_Barr1") ]
+hold = true
 
 [node name="Switch2_Barr2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64.444, 251.718 )

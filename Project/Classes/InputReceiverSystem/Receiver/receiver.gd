@@ -11,7 +11,11 @@ var off_effect
 enum Effect_State { ON, OFF}
 export (Effect_State) var current_state
 
+var activated: bool
+
 func _ready():
+	activated = false
+	
 	on_effect = get_node(on_effect_path)
 	off_effect = get_node(off_effect_path)
 	
