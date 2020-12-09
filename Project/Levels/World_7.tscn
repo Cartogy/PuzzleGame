@@ -1,8 +1,182 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Project/Levels/World_0.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Project/GameScenes/Receivers/Barrier/Barrier.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Project/GameScenes/Switch/Switch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Project/Levels/WorldComplete.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+signal level_complete(next_level)
+
+export (String, FILE, \"*.tscn\") var next_world
+
+var game
+
+func _ready():
+	game = get_tree().root.get_node(\"GameManager\")
+	print(game)
+	if game:
+		self.connect(\"level_complete\", game, \"_on_World_Complete\")
+
+func _physics_process(delta):
+	var bodies = get_overlapping_bodies()
+	for body in bodies:
+		if body.name == \"Duck\":
+			if next_world:
+				if game:
+					emit_signal(\"level_complete\", next_world)
+				else:
+					get_tree().change_scene(next_world)
+#			else: #Go back to menu?
+#				pass
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 128 )
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Area2D
+
+signal level_complete(next_level)
+
+export (String, FILE, \"*.tscn\") var next_world
+
+var game
+
+func _ready():
+	game = get_tree().root.get_node(\"GameManager\")
+	print(game)
+	if game:
+		self.connect(\"level_complete\", game, \"_on_World_Complete\")
+
+func _physics_process(delta):
+	var bodies = get_overlapping_bodies()
+	for body in bodies:
+		if body.name == \"Duck\":
+			if next_world:
+				if game:
+					emit_signal(\"level_complete\", next_world)
+				else:
+					get_tree().change_scene(next_world)
+#			else: #Go back to menu?
+#				pass
+"
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32, 128 )
 
 [node name="World_7" instance=ExtResource( 1 )]
 
-[node name="WorldComplete" parent="." index="1"]
+[node name="DuckControl" parent="." index="0"]
+position = Vector2( 96, 512 )
+
+[node name="Unit 0" parent="DuckControl/FlockManager/Flock" index="0"]
+position = Vector2( 928, 129 )
+
+[node name="Unit 1" parent="DuckControl/FlockManager/Flock" index="1"]
+position = Vector2( 928, 225 )
+
+[node name="Unit 2" parent="DuckControl/FlockManager/Flock" index="2"]
+position = Vector2( 929, 28 )
+
+[node name="Switches" type="Node" parent="." index="1"]
+
+[node name="Switch_1" parent="Switches" index="0" instance=ExtResource( 3 )]
+position = Vector2( 128, 128 )
+scale = Vector2( 4, 4 )
+
+[node name="Switch_2" parent="Switches" index="1" instance=ExtResource( 3 )]
+position = Vector2( 128, 448 )
+scale = Vector2( 4, 4 )
+
+[node name="Switch_3" parent="Switches" index="2" instance=ExtResource( 3 )]
+position = Vector2( 512, 128 )
+scale = Vector2( 4, 4 )
+
+[node name="Barriers" type="Node" parent="." index="2"]
+
+[node name="Barrier_1" parent="Barriers" index="0" instance=ExtResource( 2 )]
+position = Vector2( 288, 162 )
+scale = Vector2( 8, 20 )
+on_effect_path = NodePath("Effects/Closed")
+off_effect_path = NodePath("Effects/Open")
+inputs_to_receive = [ NodePath("../../Switches/Switch_1") ]
+hold = true
+
+[node name="Barrier_2" parent="Barriers" index="1" instance=ExtResource( 2 )]
+position = Vector2( 288, 448 )
+scale = Vector2( 8, 20 )
+current_state = 1
+inputs_to_receive = [ NodePath("../../Switches/Switch_2") ]
+hold = true
+
+[node name="Barrier_3" parent="Barriers" index="2" instance=ExtResource( 2 )]
+position = Vector2( 736, 162 )
+scale = Vector2( 8, 20 )
+current_state = 1
+inputs_to_receive = [ NodePath("../../Switches/Switch_1") ]
+hold = true
+
+[node name="Barrier_4" parent="Barriers" index="3" instance=ExtResource( 2 )]
+position = Vector2( 736, 448 )
+scale = Vector2( 8, 20 )
+on_effect_path = NodePath("Effects/Closed")
+off_effect_path = NodePath("Effects/Open")
+inputs_to_receive = [ NodePath("../../Switches/Switch_2") ]
+hold = true
+
+[node name="Barrier_5" parent="Barriers" index="4" instance=ExtResource( 2 )]
+position = Vector2( 23, 128 )
+scale = Vector2( 8, 16 )
+on_effect_path = NodePath("../Barrier_1/Effects/Open")
+off_effect_path = NodePath("../Barrier_1/Effects/Closed")
+current_state = 1
+inputs_to_receive = [ NodePath("../../Switches/Switch_3") ]
+hold = true
+
+[node name="Barrier_6" parent="Barriers" index="5" instance=ExtResource( 2 )]
+position = Vector2( 1000, 479 )
+scale = Vector2( 8, 16 )
+on_effect_path = NodePath("../Barrier_1/Effects/Open")
+off_effect_path = NodePath("../Barrier_1/Effects/Closed")
+current_state = 1
+inputs_to_receive = [ NodePath("../../Switches/Switch_3") ]
+hold = true
+
+[node name="WorldComplete" parent="." index="3"]
+position = Vector2( -32, 128 )
+script = SubResource( 1 )
 next_world = "res://Project/Levels/World_8.tscn"
+
+[node name="CollisionShape2D" parent="WorldComplete" index="0"]
+shape = SubResource( 2 )
+
+[node name="WorldComplete2" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( 1056, 479 )
+script = SubResource( 3 )
+next_world = "res://Project/Levels/World_8.tscn"
+
+[node name="CollisionShape2D" parent="WorldComplete2" index="0"]
+shape = SubResource( 4 )
+
+[editable path="DuckControl"]
+
+[editable path="DuckControl/FlockManager"]
+
+[editable path="Barriers/Barrier_1"]
+
+[editable path="Barriers/Barrier_2"]
+
+[editable path="Barriers/Barrier_3"]
+
+[editable path="Barriers/Barrier_4"]
+
+[editable path="Barriers/Barrier_5"]
+
+[editable path="Barriers/Barrier_6"]
+
+[editable path="WorldComplete"]
+
+[editable path="WorldComplete2"]

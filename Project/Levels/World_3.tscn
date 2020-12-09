@@ -1,8 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Project/Levels/World_0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Project/GameScenes/Switch/Switch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Project/GameScenes/Receivers/Barrier/Barrier.tscn" type="PackedScene" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+signal level_complete(next_level)
+
+export (String, FILE, \"*.tscn\") var next_world
+
+var game
+
+func _ready():
+	game = get_tree().root.get_node(\"GameManager\")
+	print(game)
+	if game:
+		self.connect(\"level_complete\", game, \"_on_World_Complete\")
+
+func _physics_process(delta):
+	var bodies = get_overlapping_bodies()
+	for body in bodies:
+		if body.name == \"Duck\":
+			if next_world:
+				if game:
+					emit_signal(\"level_complete\", next_world)
+				else:
+					get_tree().change_scene(next_world)
+#			else: #Go back to menu?
+#				pass
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 160 )
 
 [node name="World_3" instance=ExtResource( 1 )]
 
@@ -18,24 +49,29 @@ position = Vector2( 161, 142 )
 [node name="Unit 2" parent="DuckControl/FlockManager/Flock" index="2"]
 position = Vector2( 161, 370 )
 
-[node name="WorldComplete" parent="." index="1"]
-position = Vector2( -32, 256 )
-next_world = "res://Project/Levels/World_4.tscn"
-
-[node name="Switch_1" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Switch_1" parent="." index="1" instance=ExtResource( 2 )]
 position = Vector2( 768, 256 )
 scale = Vector2( 4, 4 )
 
-[node name="Switch_2" parent="." index="3" instance=ExtResource( 2 )]
+[node name="Switch_2" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 256, 256 )
 scale = Vector2( 4, 4 )
 
-[node name="Barrier" parent="." index="4" instance=ExtResource( 3 )]
+[node name="Barrier" parent="." index="3" instance=ExtResource( 3 )]
 position = Vector2( 512, 256 )
 scale = Vector2( 16, 20 )
 current_state = 1
 inputs_to_receive = [ NodePath("../Switch_1"), NodePath("../Switch_2") ]
 
+[node name="WorldComplete" parent="." index="4"]
+position = Vector2( -32, 256 )
+script = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="WorldComplete" index="0"]
+shape = SubResource( 2 )
+
 [editable path="DuckControl"]
 
 [editable path="DuckControl/FlockManager"]
+
+[editable path="WorldComplete"]

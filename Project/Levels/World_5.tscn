@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Project/Levels/World_0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Project/GameScenes/Switch/Switch.tscn" type="PackedScene" id=2]
@@ -6,7 +6,35 @@
 [ext_resource path="res://Project/GameScenes/Receivers/Lock/Lock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Project/GameScenes/Key/Key.tscn" type="PackedScene" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+signal level_complete(next_level)
+
+export (String, FILE, \"*.tscn\") var next_world
+
+var game
+
+func _ready():
+	game = get_tree().root.get_node(\"GameManager\")
+	print(game)
+	if game:
+		self.connect(\"level_complete\", game, \"_on_World_Complete\")
+
+func _physics_process(delta):
+	var bodies = get_overlapping_bodies()
+	for body in bodies:
+		if body.name == \"Duck\":
+			if next_world:
+				if game:
+					emit_signal(\"level_complete\", next_world)
+				else:
+					get_tree().change_scene(next_world)
+#			else: #Go back to menu?
+#				pass
+"
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 160 )
 
 [node name="World_5" instance=ExtResource( 1 )]
@@ -23,32 +51,35 @@ position = Vector2( 992, 142 )
 [node name="Unit 2" parent="DuckControl/FlockManager/Flock" index="2"]
 position = Vector2( 992, 370 )
 
-[node name="WorldComplete" parent="." index="1"]
-position = Vector2( -32, 256 )
-next_world = "res://Project/Levels/World_6.tscn"
-
-[node name="CollisionShape2D" parent="WorldComplete" index="0"]
-shape = SubResource( 1 )
-
-[node name="Key" parent="." index="2" instance=ExtResource( 5 )]
+[node name="Key" parent="." index="1" instance=ExtResource( 5 )]
 position = Vector2( 768, 256 )
 scale = Vector2( 2, 2 )
 
-[node name="Lock" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Lock" parent="." index="2" instance=ExtResource( 4 )]
 position = Vector2( 32, 256 )
 scale = Vector2( 4, 4 )
 key_path = NodePath("../Key")
 
-[node name="Switch" parent="." index="4" instance=ExtResource( 2 )]
+[node name="Switch" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 256, 256 )
 scale = Vector2( 4, 4 )
 
-[node name="Barrier" parent="." index="5" instance=ExtResource( 3 )]
+[node name="Barrier" parent="." index="4" instance=ExtResource( 3 )]
 position = Vector2( 512, 256 )
 scale = Vector2( 16, 20 )
 current_state = 1
 inputs_to_receive = [ NodePath("../Switch") ]
 
+[node name="WorldComplete" parent="." index="5"]
+position = Vector2( -32, 256 )
+script = SubResource( 1 )
+next_world = "res://Project/Levels/World_6.tscn"
+
+[node name="CollisionShape2D" parent="WorldComplete" index="0"]
+shape = SubResource( 2 )
+
 [editable path="DuckControl"]
 
 [editable path="DuckControl/FlockManager"]
+
+[editable path="WorldComplete"]
