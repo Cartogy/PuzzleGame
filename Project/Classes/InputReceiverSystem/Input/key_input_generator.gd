@@ -1,6 +1,7 @@
 extends "input_generator.gd"
 
 class_name Key
+var receiver: Receiver
 
 func _ready():
 	pass
@@ -16,3 +17,6 @@ func deactivate_collision():
 	
 func activate_collision():
 	$StaticBody2D/CollisionShape2D.disabled = false
+	
+func set_receiver(r: Receiver) -> void:
+	receiver = r

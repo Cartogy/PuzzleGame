@@ -62,7 +62,7 @@ current_state = 1
 inputs_to_receive = [ NodePath("../Switch") ]
 
 [node name="Barrier_2" parent="." index="3" instance=ExtResource( 2 )]
-position = Vector2( 512, 640 )
+position = Vector2( 512, 637.622 )
 scale = Vector2( 65, 4 )
 on_effect_path = NodePath("../Barrier_2/Effects/Open")
 off_effect_path = NodePath("../Barrier_2/Effects/Closed")

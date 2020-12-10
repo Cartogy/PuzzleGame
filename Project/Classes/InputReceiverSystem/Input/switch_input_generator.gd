@@ -7,6 +7,8 @@ var bodies_on: Array
 
 var current_state
 
+var receivers: Array
+
 func _ready():
 	current_state = Switch_State.OFF
 	match current_state:
@@ -18,12 +20,13 @@ func _ready():
 func pass_input(i: InputGenerator) -> void:
 	change_state()
 	
-	if receiver != null:
+	if receivers.size() != 0:
 		match current_state:
 			Switch_State.ON:
-				receiver.receive_input(self)
+				print(self)
+				pass_to_all_receivers(self)
 			Switch_State.OFF:
-				receiver.remove_input(self)
+				remove_to_all_receivers(self)
 	else:
 		printerr("Receiver not set for Switch")
 
@@ -45,6 +48,16 @@ func turn_on():
 func turn_off():
 	$AnimatedSprite.play("Off")
 
+func set_receiver(r: Receiver):
+	receivers.append(r)
+	
+func pass_to_all_receivers(i: InputGenerator) -> void:
+	for r in receivers:
+		r.receive_input(i)
+		
+func remove_to_all_receivers(i: InputGenerator) -> void:
+	for r in receivers:
+		r.remove_input(i)
 
 func _on_Area2D_body_entered(body):
 	if current_state != Switch_State.ON:
