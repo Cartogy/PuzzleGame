@@ -61,6 +61,7 @@ key_path = NodePath("../Key")
 [node name="WorldComplete" parent="." index="3"]
 position = Vector2( 512, 0 )
 script = SubResource( 1 )
+next_world = "res://Project/Levels/World_5.tscn"
 
 [node name="CollisionShape2D" parent="WorldComplete" index="0"]
 shape = SubResource( 2 )

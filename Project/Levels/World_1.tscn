@@ -56,8 +56,6 @@ scale = Vector2( 4, 4 )
 [node name="Barrier_1" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 512, 32 )
 scale = Vector2( 65, 4 )
-on_effect_path = NodePath("../Barrier_1/Effects/Open")
-off_effect_path = NodePath("../Barrier_1/Effects/Closed")
 current_state = 1
 inputs_to_receive = [ NodePath("../Switch") ]
 
@@ -72,6 +70,7 @@ inputs_to_receive = [ NodePath("../Switch") ]
 [node name="WorldComplete" parent="." index="4"]
 position = Vector2( 512, 0 )
 script = SubResource( 1 )
+next_world = "res://Project/Levels/World_2.tscn"
 
 [node name="CollisionShape2D" parent="WorldComplete" index="0"]
 shape = SubResource( 2 )

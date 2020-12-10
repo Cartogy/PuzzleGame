@@ -66,6 +66,7 @@ inputs_to_receive = [ NodePath("../Switch_1"), NodePath("../Switch_2") ]
 [node name="WorldComplete" parent="." index="4"]
 position = Vector2( -32, 256 )
 script = SubResource( 1 )
+next_world = "res://Project/Levels/World_4.tscn"
 
 [node name="CollisionShape2D" parent="WorldComplete" index="0"]
 shape = SubResource( 2 )
