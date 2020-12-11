@@ -12,6 +12,9 @@ func tick(delta):
 	get_parent().get_parent().current_direction = direction
 	
 	get_parent().get_parent().update_forward(direction)
+
+	get_parent().get_parent().get_node("DirectionalAnimation").direction_animation(get_parent().get_parent().forward)
+		
 	
 	get_parent().get_parent().move_and_slide(get_parent().get_parent().forward * 200, Vector2(0,0))
 	

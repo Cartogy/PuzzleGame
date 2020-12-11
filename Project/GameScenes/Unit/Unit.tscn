@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Project/GameScenes/Unit/unit.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Project/Textures/Ducklings/Duckling_Spritesheet_Animation.png" type="Texture" id=2]
 [ext_resource path="res://Project/Classes/Avoidance/avoidance.gd" type="Script" id=4]
 [ext_resource path="res://Project/Classes/FlockBehaviour/flock_behaviour.gd" type="Script" id=5]
 [ext_resource path="res://Project/Classes/Follow/follow.gd" type="Script" id=6]
@@ -9,6 +9,38 @@
 [ext_resource path="res://Project/GameScenes/Unit/States/follow_state.gd" type="Script" id=8]
 [ext_resource path="res://Project/GameScenes/Unit/States/flock_state.gd" type="Script" id=9]
 [ext_resource path="res://Project/GameScenes/Unit/States/idle_state.gd" type="Script" id=10]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "South_East",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "South",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "North",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "North_East",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "East",
+"speed": 5.0
+} ]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 57.3328
@@ -31,8 +63,9 @@ script = ExtResource( 6 )
 [node name="Flock" type="Node" parent="."]
 script = ExtResource( 5 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "New Anim"
 
 [node name="Avoidance" type="Area2D" parent="."]
 script = ExtResource( 4 )
