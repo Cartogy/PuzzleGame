@@ -9,15 +9,20 @@ func _physics_process(delta):
 	if key != null:
 		key.global_position = get_parent().get_position()
 
-func key_effect():
+# Returns boolean to tell whether a valid key_effect as created
+func key_effect() -> bool:
 	if key == null:
 		if near_key != null:
 			pick_up_key()
+			return true
 	else:
 		if lock != null:
 			use_key()
+			return true
 		else:
 			drop_key()
+			return true
+	return false
 
 func pick_up_key():
 	key = near_key
