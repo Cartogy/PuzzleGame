@@ -1,124 +1,180 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
-[ext_resource path="res://Project/GameScenes/KeyHolder/KeyHolder.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Project/Classes/MovingBody/moving_body.gd" type="Script" id=3]
-[ext_resource path="res://Project/Classes/DirectionInput/direction_input.gd" type="Script" id=4]
-[ext_resource path="res://Project/GameScenes/DirectionalAnimation/DirectionalAnimation.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Project/Classes/StateMachine/state_machine.gd" type="Script" id=6]
-[ext_resource path="res://Project/GameScenes/Duck/push_pull_state.gd" type="Script" id=7]
-[ext_resource path="res://Project/GameScenes/Duck/movement_state.gd" type="Script" id=8]
-[ext_resource path="res://Project/Textures/Duck/Duck_Sprite_Animations.png" type="Texture" id=9]
+[ext_resource path="res://Project/GameScenes/DirectionalAnimation/DirectionalAnimation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Project/Classes/StateMachine/state_machine.gd" type="Script" id=2]
+[ext_resource path="res://Project/GameScenes/Unit/States/idle_state.gd" type="Script" id=3]
+[ext_resource path="res://Project/GameScenes/Unit/States/flock_state.gd" type="Script" id=4]
+[ext_resource path="res://Project/GameScenes/Unit/States/follow_state.gd" type="Script" id=5]
+[ext_resource path="res://Project/Classes/Follow/follow.gd" type="Script" id=6]
+[ext_resource path="res://Project/Classes/Avoidance/avoidance.gd" type="Script" id=7]
+[ext_resource path="res://Project/Classes/FlockBehaviour/flock_behaviour.gd" type="Script" id=8]
+[ext_resource path="res://Project/Textures/Ducklings/Duckling_Child_Spritesheet_Animation.png" type="Texture" id=9]
 
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 32, 16, 16 )
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://Project/Classes/VectorMovement/vector_movement.gd\"
 
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 32, 16, 16 )
+# Unit is moving towards a given direction.
 
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 32, 16, 16 )
+class_name Unit
 
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 32, 16, 16 )
+var to_position: Vector2	# Used in flock movement
+var target: Node2D 
 
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 64, 16, 16 )
+const ARRIVE_THRESHOLD: = 100.0
 
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 64, 16, 16 )
+var max_speed: = 500.0
+var follow_offset: = 100.0
 
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 64, 16, 16 )
+var _velocity: Vector2 = Vector2.ZERO
 
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 64, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 48, 16, 16 )
+func _ready():
+	._ready()
+	$StateMachine.initialize($StateMachine.START_STATE)
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 48, 16, 16 )
+func set_target(targ: Node2D) -> void:
+	target = targ
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 48, 16, 16 )
+func update_follow_position(p_position: Vector2):
+	to_position = p_position
+	
+func _physics_process(delta) -> void:
+	$StateMachine.tick(delta)
+	
+# Following another unit
+func set_follow(following: VectorMovement) -> void:
+	$Follow.following = following
+	
+#########################
+#   State Transitions   #
+#########################
+
+func follow():
+	$StateMachine.change_state(\"Follow\")
+	
+func flock():
+	$StateMachine.change_state(\"Flock\")
+	
+func idle():
+	$StateMachine.change_state(\"Idle\")
+
+###########################
+"
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 9 )
-region = Rect2( 32, 48, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 16, 16, 16 )
+region = Rect2( 0, 48, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 16, 48, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 9 )
-region = Rect2( 16, 0, 16, 16 )
+region = Rect2( 0, 48, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 32, 48, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 9 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 9 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 32, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
-"loop": true,
-"name": "South_East",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
-"loop": true,
-"name": "South",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "North",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 14 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "North_East",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
 "loop": true,
 "name": "East",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "South",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "South_East",
+"speed": 5.0
 } ]
 
-[sub_resource type="GDScript" id=10]
+[sub_resource type="GDScript" id=21]
 script/source = "extends AnimatedSprite
+
+\"\"\"
+Requires an AnimationPlayer as a child
+\"\"\"
 
 func direction_animation(direction: Vector2) -> void:
 	var angle = rad2deg(direction.angle_to($RayCast2D.get_cast_to()))
@@ -162,85 +218,8 @@ func in_between_degrees(angle: float, minimum: float, maximum: float) -> bool:
 		return false
 "
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=2]
 resource_name = "East"
-length = 0.8
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 0, 3 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "East" ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -0.131, 9.334 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../CollisionShape2D:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("../CollisionShape2D:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1.074, 1.42 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath(".:flip_h")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=32]
-resource_name = "North"
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -252,31 +231,31 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "North" ]
+"values": [ "East" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:frame")
+tracks/1/path = NodePath(".:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:flip_h")
+tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ 0, 1, 2, 3 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("../CollisionShape2D:position")
@@ -288,7 +267,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1.493, -1.66 ) ]
+"values": [ Vector2( 0, 6.627 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("../CollisionShape2D:rotation_degrees")
@@ -312,13 +291,87 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.67, 1.884 ) ]
+"values": [ Vector2( 0.426, 0.395 ) ]
 }
 
-[sub_resource type="Animation" id=15]
-resource_name = "North_East"
+[sub_resource type="Animation" id=3]
+resource_name = "North"
 length = 0.8
-loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "North" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 6.627 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../CollisionShape2D:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../CollisionShape2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.426, 0.395 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
@@ -356,7 +409,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../CollisionShape2D:rotation_degrees")
+tracks/3/path = NodePath("../CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -365,10 +418,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -30.0 ]
+"values": [ Vector2( 0, 8.841 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../CollisionShape2D:position")
+tracks/4/path = NodePath("../CollisionShape2D:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -377,7 +430,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.131, 7.438 ) ]
+"values": [ -12.6 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("../CollisionShape2D:scale")
@@ -389,13 +442,12 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1.012, 0.982 ) ]
+"values": [ Vector2( 0.417, 0.235 ) ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=32]
 resource_name = "North_West"
 length = 0.8
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
@@ -433,7 +485,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../CollisionShape2D:rotation_degrees")
+tracks/3/path = NodePath("../CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -442,10 +494,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -150.0 ]
+"values": [ Vector2( 0, 8.841 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../CollisionShape2D:position")
+tracks/4/path = NodePath("../CollisionShape2D:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -454,7 +506,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.131, 7.438 ) ]
+"values": [ 12.6 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("../CollisionShape2D:scale")
@@ -466,11 +518,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1.012, 0.982 ) ]
+"values": [ Vector2( 0.417, 0.235 ) ]
 }
 
-[sub_resource type="Animation" id=31]
-resource_name = "South"
+[sub_resource type="Animation" id=23]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -509,7 +560,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../CollisionShape2D:scale")
+tracks/3/path = NodePath("../CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -518,7 +569,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0.886, 1.829 ) ]
+"values": [ Vector2( 0, 6.627 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("../CollisionShape2D:rotation_degrees")
@@ -533,7 +584,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("../CollisionShape2D:position")
+tracks/5/path = NodePath("../CollisionShape2D:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -542,11 +593,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.131, 5.143 ) ]
+"values": [ Vector2( 0.426, 0.395 ) ]
 }
 
-[sub_resource type="Animation" id=27]
-resource_name = "South_East"
+[sub_resource type="Animation" id=24]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -585,7 +635,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../CollisionShape2D:rotation_degrees")
+tracks/3/path = NodePath("../CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -594,10 +644,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 29.8 ]
+"values": [ Vector2( -1.498, 8.284 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../CollisionShape2D:scale")
+tracks/4/path = NodePath("../CollisionShape2D:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -606,10 +656,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1.012, 0.982 ) ]
+"values": [ 26.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("../CollisionShape2D:position")
+tracks/5/path = NodePath("../CollisionShape2D:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -618,10 +668,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.131, 7.438 ) ]
+"values": [ Vector2( 0.426, 0.282 ) ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=33]
 resource_name = "South_West"
 length = 0.8
 tracks/0/type = "value"
@@ -661,7 +711,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../CollisionShape2D:rotation_degrees")
+tracks/3/path = NodePath("../CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -670,10 +720,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 160.0 ]
+"values": [ Vector2( -1.498, 8.284 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../CollisionShape2D:scale")
+tracks/4/path = NodePath("../CollisionShape2D:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -682,10 +732,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1.012, 0.982 ) ]
+"values": [ 26.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("../CollisionShape2D:position")
+tracks/5/path = NodePath("../CollisionShape2D:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -694,27 +744,26 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.131, 7.438 ) ]
+"values": [ Vector2( 0.426, 0.282 ) ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=31]
 resource_name = "West"
 length = 0.8
-loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 1, 0, 3 ]
+"values": [ "East" ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:animation")
+tracks/1/path = NodePath(".:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -723,22 +772,22 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "East" ]
+"values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("../CollisionShape2D:position")
+tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -0.131, 9.334 ) ]
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../CollisionShape2D:rotation_degrees")
+tracks/3/path = NodePath("../CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -747,10 +796,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( 0, 6.627 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../CollisionShape2D:scale")
+tracks/4/path = NodePath("../CollisionShape2D:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -759,10 +808,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1.074, 1.42 ) ]
+"values": [ 0.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath(".:flip_h")
+tracks/5/path = NodePath("../CollisionShape2D:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -770,58 +819,71 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Vector2( 0.426, 0.395 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 20.1109, 10.1254 )
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 23.5506, 23.7554 )
 
-[sub_resource type="CircleShape2D" id=12]
-radius = 58.4884
+[sub_resource type="CircleShape2D" id=26]
+radius = 57.3328
 
-[node name="Duck" type="KinematicBody2D"]
-script = ExtResource( 3 )
+[node name="Unit 0" type="KinematicBody2D"]
+z_index = -1
+collision_layer = 2
+collision_mask = 2147483654
+script = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="DirectionalAnimation" parent="." instance=ExtResource( 5 )]
-scale = Vector2( 3, 3 )
-frames = SubResource( 9 )
-animation = "East"
-script = SubResource( 10 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DirectionalAnimation"]
-anims/East = SubResource( 13 )
-anims/North = SubResource( 32 )
-anims/North_East = SubResource( 15 )
-anims/North_West = SubResource( 29 )
-anims/South = SubResource( 31 )
-anims/South_East = SubResource( 27 )
-anims/South_West = SubResource( 28 )
-anims/West = SubResource( 30 )
-
-[node name="DirectionInput" type="Node" parent="."]
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.493, -1.66 )
-scale = Vector2( 0.67, 1.884 )
-shape = SubResource( 11 )
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 12 )
-
-[node name="KeyHolder" parent="." instance=ExtResource( 2 )]
-
-[node name="StateMachine" type="Node" parent="."]
+[node name="Follow" type="Node" parent="."]
 script = ExtResource( 6 )
-START_STATE = NodePath("Movement")
 
-[node name="Movement" type="Node" parent="StateMachine"]
+[node name="Flock" type="Node" parent="."]
 script = ExtResource( 8 )
 
-[node name="PushPull" type="Node" parent="StateMachine"]
+[node name="DirectionalAnimation" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
+frames = SubResource( 20 )
+animation = "South_East"
+flip_h = true
+script = SubResource( 21 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DirectionalAnimation"]
+anims/East = SubResource( 2 )
+anims/North = SubResource( 3 )
+anims/North_East = SubResource( 22 )
+anims/North_West = SubResource( 32 )
+anims/South = SubResource( 23 )
+anims/South_East = SubResource( 24 )
+anims/South_West = SubResource( 33 )
+anims/West = SubResource( 31 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.498, 8.284 )
+rotation = -0.453786
+scale = Vector2( 0.426, 0.282 )
+shape = SubResource( 25 )
+
+[node name="Avoidance" type="Area2D" parent="."]
 script = ExtResource( 7 )
-[connection signal="body_entered" from="Area2D" to="KeyHolder" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="KeyHolder" method="_on_Area2D_body_exited"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Avoidance"]
+shape = SubResource( 26 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 2 )
+START_STATE = NodePath("FlockState")
+
+[node name="FollowState" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="FlockState" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+[connection signal="body_entered" from="Avoidance" to="Avoidance" method="_on_Avoidance_body_entered"]
+[connection signal="body_exited" from="Avoidance" to="Avoidance" method="_on_Avoidance_body_exited"]

@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=33 format=2]
 
-[ext_resource path="res://Project/GameScenes/Unit/unit.gd" type="Script" id=1]
 [ext_resource path="res://Project/Textures/Ducklings/Duckling_Spritesheet_Animation.png" type="Texture" id=2]
 [ext_resource path="res://Project/Classes/Avoidance/avoidance.gd" type="Script" id=4]
 [ext_resource path="res://Project/Classes/FlockBehaviour/flock_behaviour.gd" type="Script" id=5]
@@ -10,49 +9,176 @@
 [ext_resource path="res://Project/GameScenes/Unit/States/flock_state.gd" type="Script" id=9]
 [ext_resource path="res://Project/GameScenes/Unit/States/idle_state.gd" type="Script" id=10]
 
+[sub_resource type="GDScript" id=32]
+script/source = "extends \"res://Project/Classes/VectorMovement/vector_movement.gd\"
+
+# Unit is moving towards a given direction.
+
+class_name Unit
+
+var to_position: Vector2	# Used in flock movement
+var target: Node2D 
+
+const ARRIVE_THRESHOLD: = 100.0
+
+var max_speed: = 500.0
+var follow_offset: = 100.0
+
+var _velocity: Vector2 = Vector2.ZERO
+
+
+func _ready():
+	._ready()
+	$StateMachine.initialize($StateMachine.START_STATE)
+
+func set_target(targ: Node2D) -> void:
+	target = targ
+
+func update_follow_position(p_position: Vector2):
+	to_position = p_position
+	
+func _physics_process(delta) -> void:
+	$StateMachine.tick(delta)
+	
+# Following another unit
+func set_follow(following: VectorMovement) -> void:
+	$Follow.following = following
+	
+#########################
+#   State Transitions   #
+#########################
+
+func follow():
+	$StateMachine.change_state(\"Follow\")
+	
+func flock():
+	$StateMachine.change_state(\"Flock\")
+	
+func idle():
+	$StateMachine.change_state(\"Idle\")
+
+###########################
+"
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 32, 16, 16 )
+
 [sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=33]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=37]
 animations = [ {
-"frames": [  ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "South_East",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "South",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
 "name": "North",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "North_East",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
 "loop": true,
 "name": "East",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 57.3328
-
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 23.5506, 23.7554 )
+
+[sub_resource type="CircleShape2D" id=27]
+radius = 57.3328
 
 [node name="Unit 0" type="KinematicBody2D"]
 z_index = -1
 collision_layer = 2
 collision_mask = 2147483654
-script = ExtResource( 1 )
+script = SubResource( 32 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -64,17 +190,20 @@ script = ExtResource( 6 )
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 3 )
-animation = "New Anim"
+scale = Vector2( 2, 2 )
+frames = SubResource( 37 )
+animation = "East"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 6.627 )
+scale = Vector2( 0.426, 0.395 )
+shape = SubResource( 26 )
 
 [node name="Avoidance" type="Area2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Avoidance"]
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 27 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 7 )
