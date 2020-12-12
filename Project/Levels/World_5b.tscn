@@ -37,18 +37,6 @@ extents = Vector2( 32, 160 )
 
 [node name="World_5b" instance=ExtResource( 2 )]
 
-[node name="DuckControl" parent="." index="0"]
-position = Vector2( 128, 256 )
-
-[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 961.46, 258.283 )
-
-[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 985.209, 183.845 )
-
-[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 994.403, 322.532 )
-
 [node name="Switch" parent="." index="1" instance=ExtResource( 1 )]
 position = Vector2( 256, 256 )
 scale = Vector2( 4, 4 )
@@ -74,7 +62,19 @@ scale = Vector2( 8, 20 )
 inputs_to_receive = [ NodePath("../../Switch") ]
 hold = true
 
-[node name="WorldComplete" parent="." index="3"]
+[node name="DuckControl" parent="." index="3"]
+position = Vector2( 128, 256 )
+
+[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
+position = Vector2( 961.46, 258.283 )
+
+[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
+position = Vector2( 985.209, 183.845 )
+
+[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
+position = Vector2( 994.403, 322.532 )
+
+[node name="WorldComplete" parent="." index="4"]
 position = Vector2( -32, 256 )
 script = SubResource( 1 )
 next_world = "res://Project/Levels/World_7.tscn"
@@ -82,10 +82,10 @@ next_world = "res://Project/Levels/World_7.tscn"
 [node name="CollisionShape2D" parent="WorldComplete" index="0"]
 shape = SubResource( 2 )
 
+[editable path="Barriers/Barrier_2"]
+
 [editable path="DuckControl"]
 
 [editable path="DuckControl/FlockManager"]
-
-[editable path="Barriers/Barrier_2"]
 
 [editable path="WorldComplete"]

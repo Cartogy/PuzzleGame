@@ -39,18 +39,6 @@ extents = Vector2( 32, 160 )
 
 [node name="World_5" instance=ExtResource( 1 )]
 
-[node name="DuckControl" parent="." index="0"]
-position = Vector2( 160, 256 )
-
-[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 870.661, 252.507 )
-
-[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 940.677, 161.746 )
-
-[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 955.991, 310.42 )
-
 [node name="Key" parent="." index="1" instance=ExtResource( 5 )]
 position = Vector2( 768, 256 )
 scale = Vector2( 2, 2 )
@@ -71,7 +59,19 @@ scale = Vector2( 16, 20 )
 inputs_to_receive = [ NodePath("../Switch") ]
 hold = true
 
-[node name="WorldComplete" parent="." index="5"]
+[node name="DuckControl" parent="." index="5"]
+position = Vector2( 160, 256 )
+
+[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
+position = Vector2( 870.661, 252.507 )
+
+[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
+position = Vector2( 940.677, 161.746 )
+
+[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
+position = Vector2( 955.991, 310.42 )
+
+[node name="WorldComplete" parent="." index="6"]
 position = Vector2( -32, 256 )
 script = SubResource( 1 )
 next_world = "res://Project/Levels/World_5b.tscn"

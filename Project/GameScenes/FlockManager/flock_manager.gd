@@ -11,18 +11,24 @@ var scale = 120		# How far away the direction is from the average_center
 onready var target: Node2D = get_node(target_path)
 export var target_path: = NodePath()
 
+export var area_radius: float
+
 func _ready():
 	direction_input = get_node("DirectionInput")
 	var following = null
 	for child in get_node("Flock").get_children():
 		entities.append(child)
 		child.set_target(target)
+	
+	# Area to interact via ducklings
+	$Area2D/CollisionShape2D.scale.x = area_radius
+	$Area2D/CollisionShape2D.scale.y = area_radius
 			
 	$StateMachine.initialize($StateMachine.START_STATE)
 	
 func _physics_process(delta):
 	$StateMachine.tick(delta)
-
+	$Area2D.position = get_position()
 
 ######################################
 ## Functions to calculate positions ##

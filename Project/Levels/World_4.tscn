@@ -37,8 +37,20 @@ extents = Vector2( 192, 32 )
 
 [node name="World_4" instance=ExtResource( 1 )]
 
-[node name="DuckControl" parent="." index="0"]
+[node name="Key" parent="." index="1" instance=ExtResource( 3 )]
+position = Vector2( 512, 324 )
+scale = Vector2( 2, 2 )
+
+[node name="Lock" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 512, 64 )
+scale = Vector2( 4, 4 )
+key_path = NodePath("../Key")
+
+[node name="DuckControl" parent="." index="3"]
 position = Vector2( 512, 496 )
+
+[node name="FlockManager" parent="DuckControl" index="1"]
+area_radius = 4.0
 
 [node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
 position = Vector2( 631.501, 572.414 )
@@ -49,16 +61,7 @@ position = Vector2( 399.57, 571.707 )
 [node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
 position = Vector2( 513.414, 568.879 )
 
-[node name="Key" parent="." index="1" instance=ExtResource( 3 )]
-position = Vector2( 512, 324 )
-scale = Vector2( 2, 2 )
-
-[node name="Lock" parent="." index="2" instance=ExtResource( 2 )]
-position = Vector2( 512, 64 )
-scale = Vector2( 4, 4 )
-key_path = NodePath("../Key")
-
-[node name="WorldComplete" parent="." index="3"]
+[node name="WorldComplete" parent="." index="4"]
 position = Vector2( 512, 0 )
 script = SubResource( 1 )
 next_world = "res://Project/Levels/World_5.tscn"

@@ -667,6 +667,7 @@ scale = Vector2( 0.249, 0.388 )
 shape = SubResource( 9 )
 
 [node name="Avoidance" type="Area2D" parent="."]
+visible = false
 script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Avoidance"]
