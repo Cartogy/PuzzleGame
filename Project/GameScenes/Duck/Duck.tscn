@@ -9,115 +9,115 @@
 [ext_resource path="res://Project/GameScenes/Duck/movement_state.gd" type="Script" id=8]
 [ext_resource path="res://Project/Textures/Duck/Duck_Sprite_Animations.png" type="Texture" id=9]
 
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 32, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 32, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 32, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 32, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 64, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 64, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 64, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 64, 16, 16 )
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 9 )
-region = Rect2( 0, 48, 16, 16 )
+region = Rect2( 0, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 9 )
-region = Rect2( 16, 48, 16, 16 )
+region = Rect2( 16, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 9 )
-region = Rect2( 0, 48, 16, 16 )
+region = Rect2( 0, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 9 )
-region = Rect2( 32, 48, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 16, 16, 16 )
+region = Rect2( 32, 32, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 0, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 9 )
-region = Rect2( 16, 0, 16, 16 )
+region = Rect2( 16, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 0, 16, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 9 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 9 )
 region = Rect2( 32, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 48, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "South_East",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
-"loop": true,
-"name": "South",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
-"loop": true,
-"name": "North",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 14 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "North_East",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "South",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "East",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "North",
+"speed": 5.0
 } ]
 
-[sub_resource type="GDScript" id=10]
+[sub_resource type="GDScript" id=22]
 script/source = "extends AnimatedSprite
 
 func direction_animation(direction: Vector2) -> void:
@@ -162,8 +162,7 @@ func in_between_degrees(angle: float, minimum: float, maximum: float) -> bool:
 		return false
 "
 
-[sub_resource type="Animation" id=13]
-resource_name = "East"
+[sub_resource type="Animation" id=23]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -239,7 +238,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=24]
 resource_name = "North"
 length = 0.8
 tracks/0/type = "value"
@@ -315,8 +314,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.67, 1.884 ) ]
 }
 
-[sub_resource type="Animation" id=15]
-resource_name = "North_East"
+[sub_resource type="Animation" id=25]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -392,7 +390,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.012, 0.982 ) ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=26]
 resource_name = "North_West"
 length = 0.8
 loop = true
@@ -469,7 +467,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.012, 0.982 ) ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=27]
 resource_name = "South"
 length = 0.8
 tracks/0/type = "value"
@@ -545,8 +543,7 @@ tracks/5/keys = {
 "values": [ Vector2( -0.131, 5.143 ) ]
 }
 
-[sub_resource type="Animation" id=27]
-resource_name = "South_East"
+[sub_resource type="Animation" id=28]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -621,8 +618,7 @@ tracks/5/keys = {
 "values": [ Vector2( -0.131, 7.438 ) ]
 }
 
-[sub_resource type="Animation" id=28]
-resource_name = "South_West"
+[sub_resource type="Animation" id=29]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -774,29 +770,29 @@ tracks/5/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 20.1109, 10.1254 )
 
-[sub_resource type="CircleShape2D" id=12]
-radius = 58.4884
+[sub_resource type="CircleShape2D" id=32]
+radius = 32.0919
 
 [node name="Duck" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
 [node name="DirectionalAnimation" parent="." instance=ExtResource( 5 )]
 scale = Vector2( 3, 3 )
-frames = SubResource( 9 )
+frames = SubResource( 21 )
 animation = "East"
-script = SubResource( 10 )
+script = SubResource( 22 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DirectionalAnimation"]
-anims/East = SubResource( 13 )
-anims/North = SubResource( 32 )
-anims/North_East = SubResource( 15 )
-anims/North_West = SubResource( 29 )
-anims/South = SubResource( 31 )
-anims/South_East = SubResource( 27 )
-anims/South_West = SubResource( 28 )
+anims/East = SubResource( 23 )
+anims/North = SubResource( 24 )
+anims/North_East = SubResource( 25 )
+anims/North_West = SubResource( 26 )
+anims/South = SubResource( 27 )
+anims/South_East = SubResource( 28 )
+anims/South_West = SubResource( 29 )
 anims/West = SubResource( 30 )
 
 [node name="DirectionInput" type="Node" parent="."]
@@ -805,12 +801,12 @@ script = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.493, -1.66 )
 scale = Vector2( 0.67, 1.884 )
-shape = SubResource( 11 )
+shape = SubResource( 31 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 12 )
+shape = SubResource( 32 )
 
 [node name="KeyHolder" parent="." instance=ExtResource( 2 )]
 

@@ -42,14 +42,14 @@ extents = Vector2( 192, 16 )
 [node name="DuckControl" parent="." index="0"]
 position = Vector2( 497.948, 367.634 )
 
-[node name="Unit 0" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 499, 505 )
+[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
+position = Vector2( 493.501, 272.414 )
 
-[node name="Unit 1" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 371, 505 )
+[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
+position = Vector2( 437.57, 266.707 )
 
-[node name="Unit 2" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 627, 505 )
+[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
+position = Vector2( 551.414, 263.879 )
 
 [node name="Switches" type="Node" parent="." index="1"]
 
@@ -76,6 +76,7 @@ position = Vector2( 207, 128 )
 scale = Vector2( 4, 16 )
 on_effect_path = NodePath("../Barrier_1/Effects/Open")
 off_effect_path = NodePath("../Barrier_1/Effects/Closed")
+current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_1") ]
 hold = true
 
@@ -84,6 +85,7 @@ position = Vector2( 768, 128 )
 scale = Vector2( 4, 16 )
 on_effect_path = NodePath("../Barrier_1/Effects/Open")
 off_effect_path = NodePath("../Barrier_1/Effects/Closed")
+current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_2") ]
 hold = true
 
@@ -92,6 +94,7 @@ position = Vector2( 207, 480 )
 scale = Vector2( 4, 16 )
 on_effect_path = NodePath("../Barrier_1/Effects/Open")
 off_effect_path = NodePath("../Barrier_1/Effects/Closed")
+current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_3") ]
 hold = true
 
@@ -100,6 +103,7 @@ position = Vector2( 768, 480 )
 scale = Vector2( 4, 16 )
 on_effect_path = NodePath("../Barrier_1/Effects/Open")
 off_effect_path = NodePath("../Barrier_1/Effects/Closed")
+current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_4") ]
 hold = true
 

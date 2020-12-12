@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Project/Levels/World_0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Project/GameScenes/Switch/Switch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Project/GameScenes/Receivers/Barrier/Barrier.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Project/Levels/WorldComplete.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Project/GameScenes/Unit/ChildDuckling.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 128 )
@@ -45,17 +44,14 @@ extents = Vector2( 32, 128 )
 [node name="DuckControl" parent="." index="0"]
 position = Vector2( 96, 512 )
 
-[node name="Unit 0" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 928, 129 )
+[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
+position = Vector2( 962.47, 161.926 )
 
-[node name="Unit 1" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 928, 225 )
+[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
+position = Vector2( 985.337, 91.6265 )
 
-[node name="Unit 2" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 929, 28 )
-
-[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="3" instance=ExtResource( 5 )]
-position = Vector2( 154.856, 184.555 )
+[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
+position = Vector2( 989.18, 226.861 )
 
 [node name="Switches" type="Node" parent="." index="1"]
 
