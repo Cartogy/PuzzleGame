@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://icon_gd.png" type="Texture" id=1]
 [ext_resource path="res://Project/Classes/MovingBody/moving_body.gd" type="Script" id=3]
 [ext_resource path="res://Project/Classes/DirectionInput/direction_input.gd" type="Script" id=4]
+
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 3 )
