@@ -42,8 +42,6 @@ extents = Vector2( 32, 160 )
 [node name="DuckControl" parent="." index="0"]
 position = Vector2( 160, 256 )
 
-<<<<<<< HEAD
-=======
 [node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
 position = Vector2( 870.661, 252.507 )
 
@@ -53,7 +51,6 @@ position = Vector2( 940.677, 161.746 )
 [node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
 position = Vector2( 955.991, 310.42 )
 
->>>>>>> main
 [node name="Key" parent="." index="1" instance=ExtResource( 5 )]
 position = Vector2( 768, 256 )
 scale = Vector2( 2, 2 )
