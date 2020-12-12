@@ -107,7 +107,7 @@ custom_constants/separation = 23
 
 [node name="Start" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 8 )]
 script = ExtResource( 5 )
-begin_scene = "res://Scenes/GameManager/GameManager.tscn"
+begin_scene = "res://Project/Levels/World_1.tscn"
 
 [node name="Quit" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 8 )]
 margin_top = 53.0
