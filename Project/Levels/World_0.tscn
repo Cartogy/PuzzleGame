@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Project/GameScenes/DuckNFlock/DuckNFlock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Project/Levels/WorldComplete.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Project/Levels/world_manager.gd" type="Script" id=3]
+[ext_resource path="res://Project/UI/Pause/Pause.tscn" type="PackedScene" id=4]
 
 [node name="World_0" type="Node"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="DuckControl" parent="." instance=ExtResource( 1 )]
+pause_mode = 1
 
 [node name="WorldComplete" parent="." instance=ExtResource( 2 )]
