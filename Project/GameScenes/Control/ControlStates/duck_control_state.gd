@@ -21,6 +21,9 @@ func enter():
 	$StateMachine.set_process_input(true)
 	
 func exit():
+	# Avoids bug of pressing space twice to have ducklings return to duck when returning from flock
+	$StateMachine.change_state("WaddleAlone")
+	
 	control_entity.deactivate()
 	#$StateMachine.set_block_signals(true)
 	$StateMachine.set_process_input(false)

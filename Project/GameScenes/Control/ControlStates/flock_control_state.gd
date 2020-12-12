@@ -21,6 +21,7 @@ func tick(_delta):
 	pass
 	
 func exit():
+	control_entity.idle()
 	control_entity.deactivate()
 
 func get_state_type():
