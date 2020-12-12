@@ -4,6 +4,8 @@ var box: Box
 var position_vector: Vector2	# the direction in which the player is looking at the box
 var initial_direction: Vector2
 
+onready var push_pull_force = get_node("../..").push_pull_force
+
 func enter():
 	print(initial_direction)
 	
@@ -15,13 +17,12 @@ func tick(delta):
 	var direction: Vector2 = get_parent().get_parent().direction_input.get_input()
 	print(initial_direction)
 	var dot_value: float = direction.dot(initial_direction)
-	print(dot_value)
-	
+	print(dot_value)	
 	
 	#get_parent().get_parent().update_forward(direction)
 	
-	get_parent().get_parent().move_and_slide(initial_direction * 10 * dot_value, Vector2(0,0))
-	box.move_and_slide(initial_direction * 10 * dot_value)
+	get_parent().get_parent().move_and_slide(initial_direction * push_pull_force * dot_value, Vector2(0,0))
+	box.move_and_slide(initial_direction * push_pull_force * dot_value)
 	
 func handle_input(event):
 	pass

@@ -77,25 +77,16 @@ scale = Vector2( 4, 4 )
 [node name="Barrier_1" parent="Barriers" index="0" instance=ExtResource( 5 )]
 position = Vector2( 512, 32 )
 scale = Vector2( 64, 2 )
-on_effect_path = NodePath("../Barrier_1/Effects/Open")
-off_effect_path = NodePath("../Barrier_1/Effects/Closed")
-current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_1"), NodePath("../../Switches/Switch_2"), NodePath("../../Switches/Switch_3"), NodePath("../../Switches/Switch_4") ]
 
 [node name="Barrier_2" parent="Barriers" index="1" instance=ExtResource( 5 )]
 position = Vector2( 128, 128 )
 scale = Vector2( 46, 2 )
-on_effect_path = NodePath("../Barrier_1/Effects/Open")
-off_effect_path = NodePath("../Barrier_1/Effects/Closed")
-current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_4") ]
 
 [node name="Barrier_3" parent="Barriers" index="2" instance=ExtResource( 5 )]
 position = Vector2( 896, 128 )
 scale = Vector2( 46, 2 )
-on_effect_path = NodePath("../Barrier_1/Effects/Open")
-off_effect_path = NodePath("../Barrier_1/Effects/Closed")
-current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_1") ]
 
 [node name="Keys" type="Node" parent="." index="3"]
@@ -121,29 +112,25 @@ scale = Vector2( 2, 2 )
 [node name="Lock_1" parent="Locks" index="0" instance=ExtResource( 4 )]
 position = Vector2( 384, 192 )
 scale = Vector2( 4, 4 )
-on_effect_path = NodePath("../Lock_1/Effects/Unlocked")
-off_effect_path = NodePath("../Lock_1/Effects/Locked")
+current_state = 0
 key_path = NodePath("../../Keys/Key_4")
 
 [node name="Lock_2" parent="Locks" index="1" instance=ExtResource( 4 )]
 position = Vector2( 640, 192 )
 scale = Vector2( 4, 4 )
-on_effect_path = NodePath("../Lock_1/Effects/Unlocked")
-off_effect_path = NodePath("../Lock_1/Effects/Locked")
+current_state = 0
 key_path = NodePath("../../Keys/Key_2")
 
 [node name="Lock_3" parent="Locks" index="2" instance=ExtResource( 4 )]
 position = Vector2( 384, 352 )
 scale = Vector2( 4, 4 )
-on_effect_path = NodePath("../Lock_1/Effects/Unlocked")
-off_effect_path = NodePath("../Lock_1/Effects/Locked")
+current_state = 0
 key_path = NodePath("../../Keys/Key_3")
 
 [node name="Lock_4" parent="Locks" index="3" instance=ExtResource( 4 )]
 position = Vector2( 640, 352 )
 scale = Vector2( 4, 4 )
-on_effect_path = NodePath("../Lock_1/Effects/Unlocked")
-off_effect_path = NodePath("../Lock_1/Effects/Locked")
+current_state = 0
 key_path = NodePath("../../Keys/Key_1")
 
 [node name="WorldComplete" parent="." index="5"]

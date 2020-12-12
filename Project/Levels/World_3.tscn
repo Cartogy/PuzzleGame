@@ -60,7 +60,6 @@ scale = Vector2( 4, 4 )
 [node name="Barrier" parent="." index="3" instance=ExtResource( 3 )]
 position = Vector2( 512, 256 )
 scale = Vector2( 16, 20 )
-current_state = 1
 inputs_to_receive = [ NodePath("../Switch_1"), NodePath("../Switch_2") ]
 
 [node name="WorldComplete" parent="." index="4"]

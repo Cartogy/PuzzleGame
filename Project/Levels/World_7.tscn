@@ -101,8 +101,6 @@ scale = Vector2( 4, 4 )
 [node name="Barrier_1" parent="Barriers" index="0" instance=ExtResource( 2 )]
 position = Vector2( 288, 162 )
 scale = Vector2( 8, 20 )
-on_effect_path = NodePath("Effects/Closed")
-off_effect_path = NodePath("Effects/Open")
 current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_2") ]
 hold = true
@@ -110,22 +108,18 @@ hold = true
 [node name="Barrier_2" parent="Barriers" index="1" instance=ExtResource( 2 )]
 position = Vector2( 288, 448 )
 scale = Vector2( 8, 20 )
-current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_1") ]
 hold = true
 
 [node name="Barrier_3" parent="Barriers" index="2" instance=ExtResource( 2 )]
 position = Vector2( 736, 162 )
 scale = Vector2( 8, 20 )
-current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_2") ]
 hold = true
 
 [node name="Barrier_4" parent="Barriers" index="3" instance=ExtResource( 2 )]
 position = Vector2( 736, 448 )
 scale = Vector2( 8, 20 )
-on_effect_path = NodePath("Effects/Closed")
-off_effect_path = NodePath("Effects/Open")
 current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_1") ]
 hold = true
@@ -133,18 +127,12 @@ hold = true
 [node name="Barrier_5" parent="Barriers" index="4" instance=ExtResource( 2 )]
 position = Vector2( 23, 128 )
 scale = Vector2( 8, 16 )
-on_effect_path = NodePath("../Barrier_1/Effects/Open")
-off_effect_path = NodePath("../Barrier_1/Effects/Closed")
-current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_3") ]
 hold = true
 
 [node name="Barrier_6" parent="Barriers" index="5" instance=ExtResource( 2 )]
 position = Vector2( 1000, 479 )
 scale = Vector2( 8, 16 )
-on_effect_path = NodePath("../Barrier_1/Effects/Open")
-off_effect_path = NodePath("../Barrier_1/Effects/Closed")
-current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_3") ]
 hold = true
 

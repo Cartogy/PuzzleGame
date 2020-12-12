@@ -4,6 +4,8 @@ var direction_input : DirectionInput
 var collision_velocity: Vector2		# Used by the Box interaction
 var current_direction
 
+export (int) var push_pull_force = 100
+
 func _ready():
 	direction_input = get_node("DirectionInput")
 	$StateMachine.initialize($StateMachine.START_STATE)
