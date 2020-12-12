@@ -40,14 +40,14 @@ extents = Vector2( 192, 32 )
 [node name="DuckControl" parent="." index="0"]
 position = Vector2( 512, 544 )
 
-[node name="Unit 0" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 746.78, 559 )
+[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
+position = Vector2( 382.501, 194.414 )
 
-[node name="Unit 1" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 626.78, 559 )
+[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
+position = Vector2( 150.57, 193.707 )
 
-[node name="Unit 2" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 854.78, 559 )
+[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
+position = Vector2( 264.414, 190.879 )
 
 [node name="Switch" parent="." index="1" instance=ExtResource( 3 )]
 position = Vector2( 512, 324 )

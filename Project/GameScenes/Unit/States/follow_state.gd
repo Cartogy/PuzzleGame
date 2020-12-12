@@ -39,6 +39,7 @@ func tick(delta: float):
 		10.0
 	)
 	unit._velocity = unit.move_and_slide(unit._velocity)
+	get_parent().get_parent().get_node("DirectionalAnimation").direction_animation(unit._velocity)
 	#sprite.rotation = _velocity.angle()
 	
 	return null

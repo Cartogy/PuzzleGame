@@ -9,167 +9,117 @@
 [ext_resource path="res://Project/Classes/Avoidance/avoidance.gd" type="Script" id=7]
 [ext_resource path="res://Project/Classes/FlockBehaviour/flock_behaviour.gd" type="Script" id=8]
 [ext_resource path="res://Project/Textures/Ducklings/Duckling_Child_Spritesheet_Animation.png" type="Texture" id=9]
+[ext_resource path="res://Project/GameScenes/Unit/unit.gd" type="Script" id=10]
 
-[sub_resource type="GDScript" id=1]
-script/source = "extends \"res://Project/Classes/VectorMovement/vector_movement.gd\"
-
-# Unit is moving towards a given direction.
-
-class_name Unit
-
-var to_position: Vector2	# Used in flock movement
-var target: Node2D 
-
-const ARRIVE_THRESHOLD: = 100.0
-
-var max_speed: = 500.0
-var follow_offset: = 100.0
-
-var _velocity: Vector2 = Vector2.ZERO
-
-
-func _ready():
-	._ready()
-	$StateMachine.initialize($StateMachine.START_STATE)
-
-func set_target(targ: Node2D) -> void:
-	target = targ
-
-func update_follow_position(p_position: Vector2):
-	to_position = p_position
-	
-func _physics_process(delta) -> void:
-	$StateMachine.tick(delta)
-	
-# Following another unit
-func set_follow(following: VectorMovement) -> void:
-	$Follow.following = following
-	
-#########################
-#   State Transitions   #
-#########################
-
-func follow():
-	$StateMachine.change_state(\"Follow\")
-	
-func flock():
-	$StateMachine.change_state(\"Flock\")
-	
-func idle():
-	$StateMachine.change_state(\"Idle\")
-
-###########################
-"
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 48, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 48, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 48, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 48, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 16, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 64, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 9 )
-region = Rect2( 16, 64, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 9 )
-region = Rect2( 0, 64, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 9 )
-region = Rect2( 32, 64, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 32, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 9 )
 region = Rect2( 16, 32, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 32, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 9 )
 region = Rect2( 32, 32, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=20]
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=21]
 animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
-"name": "North",
+"name": "South_East",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
-"loop": true,
-"name": "North_East",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
-"loop": true,
-"name": "East",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "South",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
-"name": "South_East",
+"name": "North",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "North_East",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "East",
 "speed": 5.0
 } ]
 
-[sub_resource type="GDScript" id=21]
+[sub_resource type="GDScript" id=22]
 script/source = "extends AnimatedSprite
 
 \"\"\"
@@ -218,8 +168,7 @@ func in_between_degrees(angle: float, minimum: float, maximum: float) -> bool:
 		return false
 "
 
-[sub_resource type="Animation" id=2]
-resource_name = "East"
+[sub_resource type="Animation" id=23]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -294,8 +243,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.426, 0.395 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "North"
+[sub_resource type="Animation" id=24]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -370,7 +318,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.426, 0.395 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=25]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -445,7 +393,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.417, 0.235 ) ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=26]
 resource_name = "North_West"
 length = 0.8
 tracks/0/type = "value"
@@ -521,7 +469,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.417, 0.235 ) ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=27]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -596,7 +544,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.426, 0.395 ) ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=28]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -671,7 +619,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.426, 0.282 ) ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=29]
 resource_name = "South_West"
 length = 0.8
 tracks/0/type = "value"
@@ -747,7 +695,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.426, 0.282 ) ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=30]
 resource_name = "West"
 length = 0.8
 tracks/0/type = "value"
@@ -823,17 +771,17 @@ tracks/5/keys = {
 "values": [ Vector2( 0.426, 0.395 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=25]
+[sub_resource type="RectangleShape2D" id=31]
 extents = Vector2( 23.5506, 23.7554 )
 
-[sub_resource type="CircleShape2D" id=26]
+[sub_resource type="CircleShape2D" id=32]
 radius = 57.3328
 
 [node name="Unit 0" type="KinematicBody2D"]
 z_index = -1
 collision_layer = 2
 collision_mask = 2147483654
-script = SubResource( 1 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -846,32 +794,32 @@ script = ExtResource( 8 )
 
 [node name="DirectionalAnimation" parent="." instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
-frames = SubResource( 20 )
+frames = SubResource( 21 )
 animation = "South_East"
 flip_h = true
-script = SubResource( 21 )
+script = SubResource( 22 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DirectionalAnimation"]
-anims/East = SubResource( 2 )
-anims/North = SubResource( 3 )
-anims/North_East = SubResource( 22 )
-anims/North_West = SubResource( 32 )
-anims/South = SubResource( 23 )
-anims/South_East = SubResource( 24 )
-anims/South_West = SubResource( 33 )
-anims/West = SubResource( 31 )
+anims/East = SubResource( 23 )
+anims/North = SubResource( 24 )
+anims/North_East = SubResource( 25 )
+anims/North_West = SubResource( 26 )
+anims/South = SubResource( 27 )
+anims/South_East = SubResource( 28 )
+anims/South_West = SubResource( 29 )
+anims/West = SubResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.498, 8.284 )
 rotation = -0.453786
 scale = Vector2( 0.426, 0.282 )
-shape = SubResource( 25 )
+shape = SubResource( 31 )
 
 [node name="Avoidance" type="Area2D" parent="."]
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Avoidance"]
-shape = SubResource( 26 )
+shape = SubResource( 32 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 2 )

@@ -9,59 +9,9 @@
 [ext_resource path="res://Project/Classes/Follow/follow.gd" type="Script" id=7]
 [ext_resource path="res://Project/Classes/Avoidance/avoidance.gd" type="Script" id=8]
 [ext_resource path="res://Project/Classes/FlockBehaviour/flock_behaviour.gd" type="Script" id=9]
+[ext_resource path="res://Project/GameScenes/Unit/unit.gd" type="Script" id=10]
 
-[sub_resource type="GDScript" id=10]
-script/source = "extends \"res://Project/Classes/VectorMovement/vector_movement.gd\"
-
-# Unit is moving towards a given direction.
-
-class_name Unit
-
-var to_position: Vector2	# Used in flock movement
-var target: Node2D 
-
-const ARRIVE_THRESHOLD: = 100.0
-
-var max_speed: = 500.0
-var follow_offset: = 100.0
-
-var _velocity: Vector2 = Vector2.ZERO
-
-
-func _ready():
-	._ready()
-	$StateMachine.initialize($StateMachine.START_STATE)
-
-func set_target(targ: Node2D) -> void:
-	target = targ
-
-func update_follow_position(p_position: Vector2):
-	to_position = p_position
-	
-func _physics_process(delta) -> void:
-	$StateMachine.tick(delta)
-	
-# Following another unit
-func set_follow(following: VectorMovement) -> void:
-	$Follow.following = following
-	
-#########################
-#   State Transitions   #
-#########################
-
-func follow():
-	$StateMachine.change_state(\"Follow\")
-	
-func flock():
-	$StateMachine.change_state(\"Flock\")
-	
-func idle():
-	$StateMachine.change_state(\"Idle\")
-
-###########################
-"
-
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=1]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -136,7 +86,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 6.706 ) ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=2]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -223,7 +173,7 @@ tracks/6/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=3]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -298,7 +248,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 7.373 ) ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=4]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -373,7 +323,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 7.373 ) ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=5]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -448,7 +398,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.385, 0.359 ) ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=6]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -523,7 +473,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.385, 0.273 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "South_West"
 length = 0.8
 tracks/0/type = "value"
@@ -599,7 +549,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.385, 0.273 ) ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=8]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:animation")
@@ -674,17 +624,17 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 6.706 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=33]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 23.5506, 23.7554 )
 
-[sub_resource type="CircleShape2D" id=34]
+[sub_resource type="CircleShape2D" id=10]
 radius = 57.3328
 
 [node name="Unit 0" type="KinematicBody2D"]
 z_index = -1
 collision_layer = 2
 collision_mask = 2147483654
-script = SubResource( 10 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -701,26 +651,26 @@ frames = ExtResource( 3 )
 animation = "North_East"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DirectionalAnimation"]
-anims/East = SubResource( 26 )
-anims/North = SubResource( 27 )
-anims/North_East = SubResource( 28 )
-anims/North_West = SubResource( 29 )
-anims/South = SubResource( 30 )
-anims/South_East = SubResource( 31 )
-anims/South_West = SubResource( 9 )
-anims/West = SubResource( 32 )
+anims/East = SubResource( 1 )
+anims/North = SubResource( 2 )
+anims/North_East = SubResource( 3 )
+anims/North_West = SubResource( 4 )
+anims/South = SubResource( 5 )
+anims/South_East = SubResource( 6 )
+anims/South_West = SubResource( 7 )
+anims/West = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 7.373 )
 rotation = 1.09956
 scale = Vector2( 0.249, 0.388 )
-shape = SubResource( 33 )
+shape = SubResource( 9 )
 
 [node name="Avoidance" type="Area2D" parent="."]
 script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Avoidance"]
-shape = SubResource( 34 )
+shape = SubResource( 10 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 1 )
