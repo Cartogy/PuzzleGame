@@ -2,9 +2,6 @@ extends Node
 
 class_name Receiver
 
-export (NodePath) var on_effect_path
-export (NodePath) var off_effect_path
-
 var on_effect
 var off_effect
 
@@ -16,8 +13,8 @@ var activated: bool
 func _ready():
 	activated = false
 	
-	on_effect = get_node(on_effect_path)
-	off_effect = get_node(off_effect_path)
+	on_effect = $Effects/On
+	off_effect = $Effects/Off
 	
 	match current_state:
 		Effect_State.ON:

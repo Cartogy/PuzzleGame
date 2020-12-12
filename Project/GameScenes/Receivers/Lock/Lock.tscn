@@ -8,14 +8,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Unlocked",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "Locked",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Unlocked",
 "speed": 5.0
 } ]
 
@@ -26,8 +26,6 @@ extents = Vector2( 6.03204, 6.01396 )
 "Lock",
 ]]
 script = ExtResource( 1 )
-on_effect_path = NodePath("Effects/Unlocked")
-off_effect_path = NodePath("Effects/Locked")
 current_state = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -43,8 +41,8 @@ shape = SubResource( 2 )
 
 [node name="Effects" type="Node" parent="."]
 
-[node name="Locked" type="Node" parent="Effects"]
+[node name="On" type="Node" parent="Effects"]
 script = ExtResource( 4 )
 
-[node name="Unlocked" type="Node" parent="Effects"]
+[node name="Off" type="Node" parent="Effects"]
 script = ExtResource( 5 )

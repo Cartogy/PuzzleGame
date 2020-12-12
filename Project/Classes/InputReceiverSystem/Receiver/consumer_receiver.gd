@@ -19,7 +19,6 @@ func _ready():
 func receive_input(i: InputGenerator):
 	if i != null:
 		inputs.append(i)
-
 		if inputs.size() >= threshold:
 			if activated == false:
 				activated = true

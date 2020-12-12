@@ -54,6 +54,7 @@ func set_receiver(r: Receiver):
 func pass_to_all_receivers(i: InputGenerator) -> void:
 	for r in receivers:
 		r.receive_input(i)
+		print(r.name)
 		
 func remove_to_all_receivers(i: InputGenerator) -> void:
 	for r in receivers:
