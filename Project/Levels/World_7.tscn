@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Project/Levels/World_0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Project/GameScenes/Receivers/Barrier/Barrier.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Project/GameScenes/Switch/Switch.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Project/Levels/WorldComplete.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Project/GameScenes/Box/Box.tscn" type="PackedScene" id=5]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Area2D
@@ -72,14 +73,14 @@ extents = Vector2( 32, 128 )
 [node name="DuckControl" parent="." index="0"]
 position = Vector2( 96, 512 )
 
-[node name="Unit 0" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 928, 129 )
+[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
+position = Vector2( 927.11, 162.684 )
 
-[node name="Unit 1" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 928, 225 )
+[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
+position = Vector2( 991.26, 81.342 )
 
-[node name="Unit 2" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 929, 28 )
+[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
+position = Vector2( 991.712, 218.365 )
 
 [node name="Switches" type="Node" parent="." index="1"]
 
@@ -147,7 +148,11 @@ current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_3") ]
 hold = true
 
-[node name="WorldComplete" parent="." index="3"]
+[node name="Box" parent="." index="3" instance=ExtResource( 5 )]
+position = Vector2( 224.266, 381.756 )
+scale = Vector2( 2, 2 )
+
+[node name="WorldComplete" parent="." index="4"]
 position = Vector2( -32, 128 )
 script = SubResource( 1 )
 next_world = "res://Project/Levels/World_8.tscn"
@@ -155,7 +160,7 @@ next_world = "res://Project/Levels/World_8.tscn"
 [node name="CollisionShape2D" parent="WorldComplete" index="0"]
 shape = SubResource( 2 )
 
-[node name="WorldComplete2" parent="." index="4" instance=ExtResource( 4 )]
+[node name="WorldComplete2" parent="." index="5" instance=ExtResource( 4 )]
 position = Vector2( 1056, 479 )
 script = SubResource( 3 )
 next_world = "res://Project/Levels/World_8.tscn"

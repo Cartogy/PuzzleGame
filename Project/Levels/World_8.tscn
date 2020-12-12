@@ -117,14 +117,12 @@ position = Vector2( 885, 366 )
 scale = Vector2( 46, 2 )
 current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_2") ]
-hold = true
 
 [node name="Barrier_7" parent="Barriers" index="6" instance=ExtResource( 3 )]
 position = Vector2( 725, 474 )
 scale = Vector2( 4, 16 )
 current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_2") ]
-hold = true
 
 [node name="WorldComplete" parent="." index="3"]
 position = Vector2( 512, 0 )

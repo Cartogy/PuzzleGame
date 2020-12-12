@@ -69,6 +69,7 @@ scale = Vector2( 4, 4 )
 position = Vector2( 512, 256 )
 scale = Vector2( 16, 20 )
 inputs_to_receive = [ NodePath("../Switch") ]
+hold = true
 
 [node name="WorldComplete" parent="." index="5"]
 position = Vector2( -32, 256 )
