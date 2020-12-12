@@ -7,7 +7,9 @@ func _ready():
 	
 
 func handle_input(event):
-	pass
+	if event.is_action_pressed("key_action"):
+		interact()
+		
 
 func enter():
 	print("[FlockingManager] Flocking")
@@ -29,3 +31,8 @@ func exit():
 
 func get_state_type():
 	return "Flock"
+	
+func interact():
+	var valid_effect = flock.get_node("KeyHolder").key_effect()
+	
+		

@@ -10,6 +10,7 @@
 
 [node name="FlockManager" parent="." instance=ExtResource( 3 )]
 target_path = NodePath("../Duck")
+area_radius = 4.0
 
 [node name="Control" parent="." instance=ExtResource( 1 )]
 

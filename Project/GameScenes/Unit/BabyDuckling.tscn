@@ -628,7 +628,7 @@ tracks/5/keys = {
 extents = Vector2( 23.5506, 23.7554 )
 
 [sub_resource type="CircleShape2D" id=10]
-radius = 18.933
+radius = 57.3328
 
 [node name="Unit 0" type="KinematicBody2D"]
 z_index = -1
@@ -667,6 +667,7 @@ scale = Vector2( 0.249, 0.388 )
 shape = SubResource( 9 )
 
 [node name="Avoidance" type="Area2D" parent="."]
+visible = false
 script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Avoidance"]
