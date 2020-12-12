@@ -38,6 +38,7 @@ extents = Vector2( 192, 32 )
 
 [node name="World_1" instance=ExtResource( 1 )]
 
+<<<<<<< HEAD
 [node name="TileMap" type="TileMap" parent="." index="0"]
 scale = Vector2( 2, 2 )
 z_index = -10
@@ -48,15 +49,19 @@ tile_data = PoolIntArray( -65526, 35, 0, -65525, 36, 0, -65524, 36, 0, -65523, 3
 
 [node name="DuckControl" parent="." index="1"]
 position = Vector2( 512, 544 )
+=======
+[node name="DuckControl" parent="." index="0"]
+position = Vector2( 513.498, 466.088 )
+>>>>>>> main
 
 [node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 382.501, 194.414 )
+position = Vector2( 631.22, 549.513 )
 
 [node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 150.57, 193.707 )
+position = Vector2( 399.289, 548.806 )
 
 [node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 264.414, 190.879 )
+position = Vector2( 513.133, 545.978 )
 
 [node name="Switch" parent="." index="2" instance=ExtResource( 3 )]
 position = Vector2( 512, 324 )

@@ -20,7 +20,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7.90071, 7.95331 )
+extents = Vector2( 6.03204, 6.01396 )
 
 [node name="Lock" type="Node2D" groups=[
 "Lock",

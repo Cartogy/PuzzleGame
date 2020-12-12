@@ -4,6 +4,13 @@
 [ext_resource path="res://Project/Textures/old_textures/Tilesets/Bush.png" type="Texture" id=2]
 [ext_resource path="res://Project/Textures/old_textures/Tilesets/Hedge_TileSheet.png" type="Texture" id=3]
 [ext_resource path="res://Project/Textures/old_textures/Tilesets/tile_set_v3.png" type="Texture" id=4]
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> main
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )

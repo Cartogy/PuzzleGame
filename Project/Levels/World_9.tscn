@@ -45,14 +45,14 @@ position = Vector2( 513, 509 )
 [node name="Duck" parent="DuckControl" index="0"]
 position = Vector2( 5, -33 )
 
-[node name="Unit 0" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 515, 564 )
+[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
+position = Vector2( 507.939, 572.726 )
 
-[node name="Unit 1" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 387, 564 )
+[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
+position = Vector2( 425.51, 554.666 )
 
-[node name="Unit 2" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 643, 564 )
+[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
+position = Vector2( 588.744, 545.163 )
 
 [node name="Switches" type="Node" parent="." index="1"]
 

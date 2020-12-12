@@ -1,9 +1,16 @@
 [gd_resource type="TileSet" load_steps=6 format=2]
 
+<<<<<<< HEAD
 [ext_resource path="res://Project/Textures/old_textures/Tilesets/tile_set.png" type="Texture" id=1]
 [ext_resource path="res://Project/Textures/old_textures/Tilesets/Bush.png" type="Texture" id=2]
 [ext_resource path="res://Project/Textures/old_textures/Tilesets/Hedge_TileSheet.png" type="Texture" id=3]
 [ext_resource path="res://Project/Textures/old_textures/Tilesets/tile_set_v3.png" type="Texture" id=4]
+=======
+[ext_resource path="res://Textures/old_textures/Tilesets/tile_set.png" type="Texture" id=1]
+[ext_resource path="res://Textures/old_textures/Tilesets/Bush.png" type="Texture" id=2]
+[ext_resource path="res://Textures/old_textures/Tilesets/Hedge_TileSheet.png" type="Texture" id=3]
+[ext_resource path="res://Textures/old_textures/Tilesets/tile_set_v3.png" type="Texture" id=4]
+>>>>>>> main
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
