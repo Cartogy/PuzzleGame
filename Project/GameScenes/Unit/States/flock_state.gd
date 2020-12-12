@@ -16,9 +16,10 @@ func handle_input(event):
 	pass
 	
 func tick(delta: float):
-	var direction = unit.to_position - unit.position
+	var direction = unit.to_position - unit.global_position
 	unit.update_forward(direction)
 	
+	unit.get_node("DirectionalAnimation").direction_animation(unit.forward)
 	unit.move_and_slide(unit.forward * 2, Vector2(0,0))
 	
 func exit() -> void:

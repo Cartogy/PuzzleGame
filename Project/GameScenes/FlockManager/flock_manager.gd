@@ -12,6 +12,7 @@ onready var target: Node2D = get_node(target_path)
 export var target_path: = NodePath()
 
 export var area_radius: float
+export var push_pull_force: float
 
 func _ready():
 	direction_input = get_node("DirectionInput")
@@ -71,6 +72,11 @@ func flock():
 
 func idle():
 	$StateMachine.change_state("Idle")
+	
+func push_pull(box: Box, initial_direction: Vector2):
+	$StateMachine/PushPull.box = box
+	$StateMachine/PushPull.initial_direction = initial_direction
+	$StateMachine.change_state("PushPull")
 #########################
 
 func deactivate():

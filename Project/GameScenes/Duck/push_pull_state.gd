@@ -15,7 +15,7 @@ func exit():
 func tick(delta):
 	#var box_position = box.global_position
 	var direction: Vector2 = get_parent().get_parent().direction_input.get_input()
-	print(initial_direction)
+	print("Forward:"+ str(initial_direction))
 	var dot_value: float = direction.dot(initial_direction)
 	print(dot_value)	
 	

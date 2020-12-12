@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Project/Classes/StateMachine/state_machine.gd" type="Script" id=1]
 [ext_resource path="res://Project/GameScenes/DirectionalAnimation/DirectionalAnimation.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Project/Classes/Avoidance/avoidance.gd" type="Script" id=8]
 [ext_resource path="res://Project/Classes/FlockBehaviour/flock_behaviour.gd" type="Script" id=9]
 [ext_resource path="res://Project/GameScenes/Unit/unit.gd" type="Script" id=10]
+[ext_resource path="res://Project/GameScenes/Unit/States/unit_push_pull_state.gd" type="Script" id=11]
 
 [sub_resource type="Animation" id=1]
 length = 0.8
@@ -685,5 +686,8 @@ script = ExtResource( 5 )
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
+
+[node name="PushPull" type="Node" parent="StateMachine"]
+script = ExtResource( 11 )
 [connection signal="body_entered" from="Avoidance" to="Avoidance" method="_on_Avoidance_body_entered"]
 [connection signal="body_exited" from="Avoidance" to="Avoidance" method="_on_Avoidance_body_exited"]

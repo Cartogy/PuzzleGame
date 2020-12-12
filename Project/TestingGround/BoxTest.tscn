@@ -8,5 +8,8 @@
 [node name="Duck" parent="." instance=ExtResource( 2 )]
 
 [node name="PhysicsBox" parent="." instance=ExtResource( 1 )]
+light_mask = 1
 position = Vector2( 320, 64 )
 scale = Vector2( 3, 3 )
+collision_layer = 1
+collision_mask = 1

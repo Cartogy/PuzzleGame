@@ -6,6 +6,7 @@ class_name Unit
 
 var to_position: Vector2	# Used in flock movement
 var target: Node2D 
+var push_pull_direction: Vector2	# [PushPull_State]
 
 const ARRIVE_THRESHOLD: = 100.0
 
@@ -17,6 +18,7 @@ var _velocity: Vector2 = Vector2.ZERO
 
 func _ready():
 	._ready()
+	push_pull_direction = Vector2.ZERO
 	$StateMachine.initialize($StateMachine.START_STATE)
 
 func set_target(targ: Node2D) -> void:
@@ -45,4 +47,6 @@ func flock():
 func idle():
 	$StateMachine.change_state("Idle")
 
+func push_pull():
+	$StateMachine.change_state("PushPull")
 ###########################

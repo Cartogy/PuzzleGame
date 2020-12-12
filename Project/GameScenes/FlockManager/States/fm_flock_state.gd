@@ -1,6 +1,6 @@
 extends "res://Project/Classes/StateMachine/state.gd"
 
-var flock
+var flock: FlockManager
 
 func _ready():
 	flock = get_parent().get_parent()
@@ -35,4 +35,18 @@ func get_state_type():
 func interact():
 	var valid_effect = flock.get_node("KeyHolder").key_effect()
 	
+	# Other interaction
+	if valid_effect == false:
+		for u in flock.entities:
+			var unit: Unit = u
+			# Check for collisions
+			if unit.get_slide_count() > 0:
+				var possible_box = unit.get_slide_collision(0)
+				# Ensure desired collision
+				if possible_box.collider is Box:
+					var box: Box = possible_box.collider
+					# Reduce size of forward to have size 
+					var forward = unit.forward.normalized().round()
+					
+					flock.push_pull(box, forward)
 		
