@@ -71,6 +71,8 @@ hold = true
 [node name="Barrier_3" parent="Barriers" index="2" instance=ExtResource( 3 )]
 position = Vector2( 674.058, 257.024 )
 scale = Vector2( 8, 20 )
+inputs_to_receive = [ NodePath("../../Switch") ]
+hold = true
 
 [node name="WorldComplete" parent="." index="3"]
 position = Vector2( -32, 256 )
