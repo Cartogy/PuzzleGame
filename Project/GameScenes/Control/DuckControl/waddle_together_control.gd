@@ -24,5 +24,4 @@ func get_state_type():
 	return "WaddleTogether"
 
 func play_transition_sound():
-	print_debug("waddle together")
 	SoundManager.play_quack_neutral()

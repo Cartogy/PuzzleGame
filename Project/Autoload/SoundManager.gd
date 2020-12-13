@@ -14,7 +14,7 @@ var ui_button = load("res://Project/Audio/SFX/UIButton.ogg")
 var game_switch = load("res://Project/Audio/SFX/Switch.ogg")
 
 var main_theme = preload("res://Project/Audio/Music/For_Duck's_Sake_(MENU)_1.1.wav")
-var pause_theme = preload("res://Project/Audio/Music/For_Duck's_Sake_(MENU)_1.1.wav")
+var pause_theme = preload("res://Project/Audio/Music/So_Ducked_Up_(PAUSE_MENU)1.1.wav")
 
 var possible_music = [
 preload("res://Project/Audio/Music/Total_quack_job_(Gameplay)_1.2.wav"),
@@ -31,7 +31,13 @@ func play_random_music():
 	music_player.stream = possible_music[temp]
 	music_player.play()
 
+func play_pause_music():
+	music_player.stream = pause_theme
+	music_player.play()
 
+func stop_pause_music():
+	music_player.stop()
+		
 func play_chirp_calm():
 	sound_player.stream = chirp_calm
 	sound_player.play()
