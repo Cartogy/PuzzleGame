@@ -109,18 +109,27 @@ custom_constants/separation = 23
 script = ExtResource( 5 )
 begin_scene = "res://Project/Levels/World_1.tscn"
 
-[node name="Quit" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 8 )]
+[node name="Start2" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 8 )]
 margin_top = 53.0
 margin_bottom = 83.0
+script = ExtResource( 5 )
+begin_scene = "res://Project/GameScenes/EndCredits/EndCredits.tscn"
+
+[node name="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Start2" index="0"]
+text = "Credits"
+
+[node name="Quit" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 8 )]
+margin_top = 106.0
+margin_bottom = 136.0
 script = ExtResource( 4 )
 
 [node name="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Quit" index="0"]
 text = "Quit"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 106.0
+margin_top = 159.0
 margin_right = 144.0
-margin_bottom = 106.0
+margin_bottom = 159.0
 grow_horizontal = 0
 alignment = 2
 
@@ -136,9 +145,9 @@ margin_right = 1.0
 margin_bottom = -3.0
 
 [node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 129.0
+margin_top = 182.0
 margin_right = 144.0
-margin_bottom = 129.0
+margin_bottom = 182.0
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 468.0
@@ -165,5 +174,7 @@ margin_top = -119.0
 margin_right = 99.0
 margin_bottom = 0.0
 size_flags_stretch_ratio = 0.0
+
+[editable path="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Start2"]
 
 [editable path="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/Quit"]
