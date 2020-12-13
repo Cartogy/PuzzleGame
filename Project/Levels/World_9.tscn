@@ -61,17 +61,20 @@ scale = Vector2( 4, 4 )
 
 [node name="Barrier_1" parent="Barriers" index="0" instance=ExtResource( 5 )]
 position = Vector2( 512, 32 )
-scale = Vector2( 64, 2 )
+rotation = 1.5708
+scale = Vector2( 5, 24.482 )
 inputs_to_receive = [ NodePath("../../Switches/Switch_1"), NodePath("../../Switches/Switch_2"), NodePath("../../Switches/Switch_3"), NodePath("../../Switches/Switch_4") ]
 
 [node name="Barrier_2" parent="Barriers" index="1" instance=ExtResource( 5 )]
 position = Vector2( 128, 128 )
-scale = Vector2( 46, 2 )
+rotation = 1.5708
+scale = Vector2( 5, 16.057 )
 inputs_to_receive = [ NodePath("../../Switches/Switch_4") ]
 
 [node name="Barrier_3" parent="Barriers" index="2" instance=ExtResource( 5 )]
 position = Vector2( 896, 128 )
-scale = Vector2( 46, 2 )
+rotation = 1.5708
+scale = Vector2( 6.298, 16.013 )
 inputs_to_receive = [ NodePath("../../Switches/Switch_1") ]
 
 [node name="Keys" type="Node" parent="." index="3"]

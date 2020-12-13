@@ -30,3 +30,6 @@ func exit():
 
 func get_state_type():
 	return "DuckControl"
+
+func play_transition_sound():
+	pass

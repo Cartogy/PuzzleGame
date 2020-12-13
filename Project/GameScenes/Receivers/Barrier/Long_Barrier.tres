@@ -1,0 +1,17 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=2]
+
+[ext_resource path="res://Project/Textures/old_textures/Barrier/Barrier_Open_v2.png" type="Texture" id=1]
+[ext_resource path="res://Project/Textures/old_textures/Barrier/Barrier_Closed_v2.png" type="Texture" id=2]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Open",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Closed",
+"speed": 5.0
+} ]

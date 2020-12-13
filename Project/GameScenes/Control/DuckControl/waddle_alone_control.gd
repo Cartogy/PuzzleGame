@@ -23,3 +23,6 @@ func exit():
 
 func get_state_type():
 	return "WaddleAlone"
+
+func play_transition_sound():
+	pass

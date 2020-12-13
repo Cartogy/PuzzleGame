@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Project/Textures/old_textures/Tilesets/grassland_TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Project/Textures/Tilesets/sky.png" type="Texture" id=2]
+[ext_resource path="res://Project/Textures/Clouds/Cloud_1.png" type="Texture" id=3]
+[ext_resource path="res://Project/UI/MainMenu/moving_background.gd" type="Script" id=4]
+[ext_resource path="res://Project/Textures/Clouds/Cloud_2.png" type="Texture" id=5]
+[ext_resource path="res://Project/Textures/Clouds/Cloud_3.png" type="Texture" id=6]
 
 [node name="TextureRect" type="TextureRect"]
 margin_right = 40.0
@@ -12,6 +16,7 @@ __meta__ = {
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 3, 3 )
+z_index = -6
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -25,3 +30,39 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Cloud_1" type="TextureRect" parent="TextureRect"]
+margin_left = 154.49
+margin_top = 14.5281
+margin_right = 170.49
+margin_bottom = 30.5281
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="Cloud_2" type="TextureRect" parent="TextureRect"]
+margin_left = 444.202
+margin_top = 55.7611
+margin_right = 460.202
+margin_bottom = 71.7611
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="Cloud_3" type="TextureRect" parent="TextureRect"]
+margin_left = 712.143
+margin_top = -1.58765
+margin_right = 728.143
+margin_bottom = 14.4124
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 0
+scroll_limit_end = Vector2( 200, 0 )
+script = ExtResource( 4 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 10
+motion_mirroring = Vector2( 1000, 0 )
