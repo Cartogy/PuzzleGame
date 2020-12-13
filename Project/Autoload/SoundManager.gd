@@ -5,13 +5,13 @@ onready var sound_player = $SoundPlayer
 
 var start_dir = ".."
 
-var chirp_calm = preload("../Audio/SFX/Chirps1.ogg")
-var chirp_stress = preload("../Audio/SFX/Chirps2.ogg")
-var quack_angry = preload("../Audio/SFX/Quack1.ogg")
-var quack_neutral = preload("../Audio/SFX/Quack2.ogg")
-var quack_secret = preload("../Audio/SFX/Quack3.ogg")
-var ui_button = preload("../Audio/SFX/UIButton.ogg")
-var game_switch = preload("../Audio/SFX/Switch.ogg")
+var chirp_calm = load("../Audio/SFX/Chirps1.ogg")
+var chirp_stress = load("../Audio/SFX/Chirps2.ogg")
+var quack_angry = load("../Audio/SFX/Quack1.ogg")
+var quack_neutral = load("../Audio/SFX/Quack2.ogg")
+var quack_secret = load("../Audio/SFX/Quack3.ogg")
+var ui_button = load("../Audio/SFX/UIButton.ogg")
+var game_switch = load("../Audio/SFX/Switch.ogg")
 
 # var main_theme = preload("res://Audio/Music/DuckThemeMaster.wav")
 
