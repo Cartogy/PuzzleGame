@@ -10,7 +10,7 @@ extends Node
 func _ready():
 	var f: Node2D = Node2D.new()
 	
-	print(f.get_class()) 
+	print_debug(f.get_class()) 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

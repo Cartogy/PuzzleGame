@@ -26,7 +26,7 @@ func tick(delta):
 	var dot_value: float = direction.dot(initial_direction)
 	
 	var push_pull_direction = initial_direction * flock.push_pull_force * dot_value
-	print(push_pull_direction)
+	print_debug(push_pull_direction)
 	# Pass to all entities
 	for e in flock.entities:
 		var unit: Unit = e

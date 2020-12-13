@@ -8,7 +8,7 @@ var game
 
 func _ready():
 	game = get_tree().root.get_node("GameManager")
-	print(game)
+	print_debug(game)
 	if game:
 		self.connect("level_complete", game, "_on_World_Complete")
 

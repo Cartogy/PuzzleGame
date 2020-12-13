@@ -7,7 +7,7 @@ var collisions: Array
 
 func _input(event):
 	if event.is_action_pressed("key_action"):
-		print("[Duck] Key action pressed")
+		print_debug("[Duck] Key action pressed")
 		interact()
 	elif event.is_action_released("key_action"):
 		stop_interacting()

@@ -23,7 +23,7 @@ func pass_input(i: InputGenerator) -> void:
 	if receivers.size() != 0:
 		match current_state:
 			Switch_State.ON:
-				print(self)
+				print_debug(self)
 				pass_to_all_receivers(self)
 			Switch_State.OFF:
 				remove_to_all_receivers(self)
@@ -54,7 +54,7 @@ func set_receiver(r: Receiver):
 func pass_to_all_receivers(i: InputGenerator) -> void:
 	for r in receivers:
 		r.receive_input(i)
-		print(r.name)
+		print_debug(r.name)
 		
 func remove_to_all_receivers(i: InputGenerator) -> void:
 	for r in receivers:

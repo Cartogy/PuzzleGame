@@ -41,7 +41,19 @@ extents = Vector2( 32, 128 )
 
 [node name="World_6" instance=ExtResource( 1 )]
 
-[node name="Switches" type="Node" parent="." index="1"]
+[node name="DuckControl" parent="." index="1"]
+position = Vector2( 96, 512 )
+
+[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
+position = Vector2( 962.47, 161.926 )
+
+[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
+position = Vector2( 985.337, 91.6265 )
+
+[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
+position = Vector2( 989.18, 226.861 )
+
+[node name="Switches" type="Node" parent="." index="2"]
 
 [node name="Switch_1" parent="Switches" index="0" instance=ExtResource( 2 )]
 position = Vector2( 128, 128 )
@@ -51,7 +63,7 @@ scale = Vector2( 4, 4 )
 position = Vector2( 128, 448 )
 scale = Vector2( 4, 4 )
 
-[node name="Barriers" type="Node" parent="." index="2"]
+[node name="Barriers" type="Node" parent="." index="3"]
 
 [node name="Barrier_1" parent="Barriers" index="0" instance=ExtResource( 3 )]
 position = Vector2( 256, 162 )
@@ -81,18 +93,6 @@ current_state = 1
 inputs_to_receive = [ NodePath("../../Switches/Switch_1") ]
 hold = true
 
-[node name="DuckControl" parent="." index="3"]
-position = Vector2( 96, 512 )
-
-[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 962.47, 161.926 )
-
-[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 985.337, 91.6265 )
-
-[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 989.18, 226.861 )
-
 [node name="WorldComplete2" parent="." index="4" instance=ExtResource( 4 )]
 position = Vector2( 1056, 479 )
 script = SubResource( 1 )
@@ -108,6 +108,10 @@ next_world = "res://Project/Levels/World_7.tscn"
 [node name="CollisionShape2D" parent="WorldComplete" index="0"]
 shape = SubResource( 3 )
 
+[editable path="DuckControl"]
+
+[editable path="DuckControl/FlockManager"]
+
 [editable path="Barriers/Barrier_1"]
 
 [editable path="Barriers/Barrier_2"]
@@ -115,10 +119,6 @@ shape = SubResource( 3 )
 [editable path="Barriers/Barrier_3"]
 
 [editable path="Barriers/Barrier_4"]
-
-[editable path="DuckControl"]
-
-[editable path="DuckControl/FlockManager"]
 
 [editable path="WorldComplete2"]
 

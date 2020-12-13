@@ -7,7 +7,7 @@ class_name Box
 
 
 func push(velocity: Vector2) -> void:
-	print("Push not implemented in %s" % filename)
+	print_debug("Push not implemented in %s" % filename)
 
 func valid_force(force_v: Vector2) -> bool:
 	if force_v.length() == 1:
