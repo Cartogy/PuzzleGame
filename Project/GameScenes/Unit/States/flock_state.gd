@@ -19,7 +19,7 @@ func tick(delta: float):
 	var direction = unit.to_position - unit.position
 	unit.update_forward(direction)
 	
-	unit.move_and_slide(unit.forward * 10, Vector2(0,0))
+	unit.move_and_slide(unit.forward * 2, Vector2(0,0))
 	
 func exit() -> void:
 	pass
