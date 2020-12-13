@@ -9,7 +9,7 @@ func _ready():
 	flock_mechanic = unit.get_node("Flock")
 
 func enter() -> void:
-	print("[Unit] Idle")
+	print_debug("[Unit] Idle")
 	if unit.is_physics_processing():
 		unit.set_physics_process(false)
 	

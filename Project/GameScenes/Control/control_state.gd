@@ -16,6 +16,7 @@ func _ready():
 func handle_input(event):
 	if event.is_action_pressed(key_input):
 		emit_signal("switch_state", transfer_state)
+		print_debug("switch_state")
 	return
 
 func enter():

@@ -12,7 +12,7 @@ func handle_input(event):
 		
 
 func enter():
-	print("[FlockingManager] Flocking")
+	print_debug("[FlockingManager] Flocking")
 	for e in flock.entities:
 		e.flock()
 	

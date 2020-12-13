@@ -27,7 +27,7 @@ func set_level(status: bool):
 	get_tree().paused = status
 	
 func change_state():
-	print("Changing State")
+	print_debug("Changing State")
 	match current_state:
 		World_State.INGAME:
 			add_child(pause_ui)
