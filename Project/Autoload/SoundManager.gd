@@ -11,25 +11,24 @@ var quack_secret = preload("res://Project/Audio/SFX/Quack3.ogg")
 var ui_button = preload("res://Project/Audio/SFX/UIButton.ogg")
 var game_switch = preload("res://Project/Audio/SFX/Switch.ogg")
 
-# var main_theme = preload("res://Audio/Music/DuckThemeMaster.wav")
+var main_theme = preload("res://Project/Audio/Music/For_Duck's_Sake_(MENU)_1.1.wav")
+var pause_theme = preload("res://Project/Audio/Music/For_Duck's_Sake_(MENU)_1.1.wav")
 
-#var possible_music = [
-#preload("res://Audio/Music/DuckTrack2Master.wav"),
+var possible_music = [
+preload("res://Project/Audio/Music/Total_quack_job_(Gameplay)_1.2.wav"),
 #preload("res://Audio/Music/DuckTrack3Master.wav")
-#]
+]
 
 func _ready():
 	randomize()
 	set_volume()
 
 func play_random_music():
-	pass
-	"""
 	music_player.stop()
 	var temp = floor(rand_range(0, possible_music.size()))
 	music_player.stream = possible_music[temp]
 	music_player.play()
-	"""
+
 
 func play_chirp_calm():
 	sound_player.stream = chirp_calm
@@ -60,11 +59,8 @@ func play_game_switch():
 	sound_player.play()
 
 func play_theme():
-	pass
-	"""
 	music_player.stream = main_theme
 	music_player.play()
-	"""
 
 func set_volume():
 	if ConfigManager.sound_on:

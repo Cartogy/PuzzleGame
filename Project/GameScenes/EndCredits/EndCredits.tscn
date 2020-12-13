@@ -100,7 +100,7 @@ margin_right = 1024.0
 margin_bottom = 117.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Music: "
+text = "Music: Shane Chauhan"
 align = 1
 
 [node name="Programmer" type="Label" parent="VBoxContainer/VBoxContainer"]

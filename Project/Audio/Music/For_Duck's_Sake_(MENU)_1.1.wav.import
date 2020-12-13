@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/For_Duck's_Sake_(MENU)_1.1.wav-7182d10b4f3c79324d3bd59811ef68b2.sample"
+
+[deps]
+
+source_file="res://Project/Audio/Music/For_Duck's_Sake_(MENU)_1.1.wav"
+dest_files=[ "res://.import/For_Duck's_Sake_(MENU)_1.1.wav-7182d10b4f3c79324d3bd59811ef68b2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

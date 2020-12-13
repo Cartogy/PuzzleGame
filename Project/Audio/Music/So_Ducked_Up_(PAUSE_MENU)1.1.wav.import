@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/So_Ducked_Up_(PAUSE_MENU)1.1.wav-4082ba07901eb8e232ccc7f6b150dbaa.sample"
+
+[deps]
+
+source_file="res://Project/Audio/Music/So_Ducked_Up_(PAUSE_MENU)1.1.wav"
+dest_files=[ "res://.import/So_Ducked_Up_(PAUSE_MENU)1.1.wav-4082ba07901eb8e232ccc7f6b150dbaa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -34,33 +34,33 @@ extents = Vector2( 32, 70 )
 
 [node name="World_2" instance=ExtResource( 1 )]
 
-[node name="Switch_1" parent="." index="1" instance=ExtResource( 2 )]
+[node name="DuckControl" parent="." index="1"]
+position = Vector2( 864, 306 )
+
+[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
+position = Vector2( 912, 306 )
+
+[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
+position = Vector2( 928, 272 )
+
+[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
+position = Vector2( 928, 336 )
+
+[node name="Switch_1" parent="." index="2" instance=ExtResource( 2 )]
 position = Vector2( 768, 306 )
 scale = Vector2( 4, 4 )
 
-[node name="Switch_2" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Switch_2" parent="." index="3" instance=ExtResource( 2 )]
 position = Vector2( 256, 306 )
 scale = Vector2( 4, 4 )
 
-[node name="Barrier" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Barrier" parent="." index="4" instance=ExtResource( 3 )]
 position = Vector2( 116.731, 302.51 )
 scale = Vector2( 7, 10 )
 inputs_to_receive = [ NodePath("../Switch_1"), NodePath("../Switch_2") ]
 
-[node name="DuckControl" parent="." index="4"]
-position = Vector2( 896, 256 )
-
-[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 997.136, 258.283 )
-
-[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 987.587, 160.061 )
-
-[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 994.403, 334.424 )
-
 [node name="WorldComplete" parent="." index="5"]
-position = Vector2( -32, 256 )
+position = Vector2( 48, 304 )
 script = SubResource( 1 )
 next_world = "res://Project/Levels/World_3.tscn"
 

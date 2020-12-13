@@ -30,4 +30,4 @@ func get_state_type():
 	
 # Sound played when transitioning to next state
 func play_transition_sound():
-	pass
+	SoundManager.play_chirp_stress()

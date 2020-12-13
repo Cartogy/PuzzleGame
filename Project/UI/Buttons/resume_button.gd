@@ -5,7 +5,7 @@ signal unpause
 var game
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print_debug(get_owner().get_parent().name)
+	#print_debug(get_owner().get_parent().name)
 	game = get_owner().get_parent()
 	
 	self.connect("unpause", game, "change_state")

@@ -25,4 +25,4 @@ func get_state_type():
 	return "WaddleAlone"
 
 func play_transition_sound():
-	pass
+	SoundManager.play_quack_angry()

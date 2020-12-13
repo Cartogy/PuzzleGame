@@ -10,7 +10,7 @@ func handle_input(event):
 	pass
 
 func enter():
-	print_debug("[Flocking Manager] FOllowing")
+	#print_debug("[Flocking Manager] FOllowing")
 	
 	assert(flock.entities.size() > 0)
 	for e in flock.entities:
@@ -20,7 +20,8 @@ func tick(delta):
 	pass
 	
 func exit():
-	print_debug("[Flocking Manager] FOllowing Exiting")
+	#print_debug("[Flocking Manager] FOllowing Exiting")
+	pass
 
 func get_state_type():
 	return "Follow"

@@ -35,7 +35,7 @@ func add_state(state: State) -> void:
 	states[state.get_state_type()] = state
 
 func get_state(state) -> State:
-	print_debug(state)
+	#print_debug(state)
 	if states.has(state):
 		return states[state]
 	return null
