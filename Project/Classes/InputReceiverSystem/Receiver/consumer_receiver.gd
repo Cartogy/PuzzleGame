@@ -5,6 +5,7 @@ class_name ConsumerReceiver
 export (Array, NodePath) var inputs_to_receive
 export (bool) var hold	# If input has to be held to activate it
 
+
 var inputs: Array
 var threshold: int	# Determines when to apply effect
 
