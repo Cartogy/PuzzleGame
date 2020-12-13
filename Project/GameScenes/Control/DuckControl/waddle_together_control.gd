@@ -22,3 +22,6 @@ func exit():
 
 func get_state_type():
 	return "WaddleTogether"
+
+func play_transition_sound():
+	pass

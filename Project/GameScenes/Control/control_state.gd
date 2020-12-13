@@ -16,6 +16,8 @@ func _ready():
 func handle_input(event):
 	if event.is_action_pressed(key_input):
 		emit_signal("switch_state", transfer_state)
+		play_transition_sound()
+		
 	return
 
 func enter():
@@ -25,4 +27,7 @@ func tick(delta):
 	pass
 	
 func exit():
+	pass
+
+func play_transition_sound():
 	pass

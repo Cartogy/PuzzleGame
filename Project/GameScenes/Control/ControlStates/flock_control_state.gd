@@ -11,6 +11,7 @@ func _ready():
 func handle_input(event):
 	if event.is_action_pressed("control_switch"):
 		emit_signal("switch_state", transfer_state)
+		play_transition_sound()
 
 func enter():
 	control_entity.activate()
@@ -26,3 +27,7 @@ func exit():
 
 func get_state_type():
 	return "FlockControl"
+	
+# Sound played when transitioning to next state
+func play_transition_sound():
+	pass
