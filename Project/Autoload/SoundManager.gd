@@ -3,13 +3,15 @@ extends Node
 onready var music_player = $MusicPlayer
 onready var sound_player = $SoundPlayer
 
-var chirp_calm = preload("res://Project/Audio/SFX/Chirps1.ogg")
-var chirp_stress = preload("res://Project/Audio/SFX/Chirps2.ogg")
-var quack_angry = preload("res://Project/Audio/SFX/Quack1.ogg")
-var quack_neutral = preload("res://Project/Audio/SFX/Quack2.ogg")
-var quack_secret = preload("res://Project/Audio/SFX/Quack3.ogg")
-var ui_button = preload("res://Project/Audio/SFX/UIButton.ogg")
-var game_switch = preload("res://Project/Audio/SFX/Switch.ogg")
+var start_dir = ".."
+
+var chirp_calm = preload("../Audio/SFX/Chirps1.ogg")
+var chirp_stress = preload("../Audio/SFX/Chirps2.ogg")
+var quack_angry = preload("../Audio/SFX/Quack1.ogg")
+var quack_neutral = preload("../Audio/SFX/Quack2.ogg")
+var quack_secret = preload("../Audio/SFX/Quack3.ogg")
+var ui_button = preload("../Audio/SFX/UIButton.ogg")
+var game_switch = preload("../Audio/SFX/Switch.ogg")
 
 # var main_theme = preload("res://Audio/Music/DuckThemeMaster.wav")
 
