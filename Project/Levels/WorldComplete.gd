@@ -7,8 +7,7 @@ export (String, FILE, "*.tscn") var next_world
 var game
 
 func _ready():
-	game = get_tree().root.get_node("GameManager")
-	print_debug(game)
+	game = null
 	if game:
 		self.connect("level_complete", game, "_on_World_Complete")
 

@@ -29,6 +29,7 @@ func _physics_process(delta):
 	
 func deactivate():
 	self.set_physics_process(false)
+	$DirectionalAnimation/AnimationPlayer.stop()
 	
 func activate():
 	self.set_physics_process(true)
