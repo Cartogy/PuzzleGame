@@ -8,6 +8,7 @@ var pause_ui
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	current_state = World_State.INGAME
+	SoundManager.play_gameplay_music()
 	pause_ui = get_node("PauseMenu")
 	pause_ui.visible = true
 	pause_ui.focus_mode = pause_ui.FOCUS_NONE

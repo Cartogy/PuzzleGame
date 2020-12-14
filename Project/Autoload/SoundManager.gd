@@ -21,20 +21,36 @@ load("res://Project/Audio/Music/Total_quack_job_(Gameplay)_1.2.wav"),
 #preload("res://Audio/Music/DuckTrack3Master.wav")
 ]
 
+enum Music_State { GAMEPLAY, PAUSE, MAIN_MENU, NONE}
+var current_state
+
 func _ready():
 	randomize()
+	current_state = Music_State.NONE
 	set_volume()
 
 func play_gameplay_music():
-	music_player.stop()
+	if current_state != Music_State.GAMEPLAY:	# Avoid replaying music after ever level
+		music_player.stop()
+		var temp = floor(rand_range(0, possible_music.size()))
+		music_player.stream = possible_music[temp]
+		music_player.play()
+		current_state = Music_State.GAMEPLAY
+
+#############################################
+#    Only meant to be used during gameplay  #
+#############################################
+func play_next_gameplay_music():
 	var temp = floor(rand_range(0, possible_music.size()))
 	music_player.stream = possible_music[temp]
 	music_player.play()
 
 func play_pause_music():
-	music_player.stop()
-	music_player.stream = pause_theme
-	music_player.play()
+	if current_state != Music_State.PAUSE:
+		music_player.stop()
+		music_player.stream = pause_theme
+		music_player.play()
+		current_state = Music_State.PAUSE
 
 func stop_pause_music():
 	music_player.stop()
@@ -69,8 +85,11 @@ func play_game_switch():
 	sound_player.play()
 
 func play_theme():
-	music_player.stream = main_theme
-	music_player.play()
+	if current_state != Music_State.MAIN_MENU:
+		music_player.stream = main_theme
+		music_player.play()
+		
+		current_state = Music_State.MAIN_MENU
 
 func set_volume():
 	if ConfigManager.sound_on:
