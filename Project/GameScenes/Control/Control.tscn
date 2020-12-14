@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Project/Classes/StateMachine/state_machine.gd" type="Script" id=1]
 [ext_resource path="res://Project/GameScenes/Control/control.gd" type="Script" id=2]
@@ -6,37 +6,9 @@
 [ext_resource path="res://Project/GameScenes/Control/ControlStates/flock_control_state.gd" type="Script" id=4]
 [ext_resource path="res://Project/GameScenes/Control/DuckControl/waddle_alone_control.gd" type="Script" id=5]
 [ext_resource path="res://Project/GameScenes/Control/DuckControl/waddle_together_control.gd" type="Script" id=6]
-[ext_resource path="res://Project/GameScenes/Control/label_state.gd" type="Script" id=7]
 
 [node name="Control" type="Node"]
 script = ExtResource( 2 )
-
-[node name="StateLabel" type="Control" parent="."]
-margin_right = 235.0
-margin_bottom = 116.0
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="StateLabel"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ControlLabel" type="Label" parent="StateLabel/VBoxContainer"]
-margin_right = 40.0
-margin_bottom = 14.0
-
-[node name="DuckLabel" type="Label" parent="StateLabel/VBoxContainer"]
-margin_top = 18.0
-margin_right = 40.0
-margin_bottom = 32.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 1 )
