@@ -17,7 +17,7 @@ var main_theme = load("res://Project/Audio/Music/For_Duck's_Sake_(MENU)_1.1.wav"
 var pause_theme = load("res://Project/Audio/Music/So_Ducked_Up_(PAUSE_MENU)1.1.wav")
 
 var possible_music = [
-preload("res://Project/Audio/Music/Total_quack_job_(Gameplay)_1.2.wav"),
+load("res://Project/Audio/Music/Total_quack_job_(Gameplay)_1.2.wav"),
 #preload("res://Audio/Music/DuckTrack3Master.wav")
 ]
 
