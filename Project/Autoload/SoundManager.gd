@@ -13,8 +13,8 @@ var quack_secret = load("res://Project/Audio/SFX/Quack3.ogg")
 var ui_button = load("res://Project/Audio/SFX/UIButton.ogg")
 var game_switch = load("res://Project/Audio/SFX/Switch.ogg")
 
-var main_theme = preload("res://Project/Audio/Music/For_Duck's_Sake_(MENU)_1.1.wav")
-var pause_theme = preload("res://Project/Audio/Music/So_Ducked_Up_(PAUSE_MENU)1.1.wav")
+var main_theme = load("res://Project/Audio/Music/For_Duck's_Sake_(MENU)_1.1.wav")
+var pause_theme = load("res://Project/Audio/Music/So_Ducked_Up_(PAUSE_MENU)1.1.wav")
 
 var possible_music = [
 preload("res://Project/Audio/Music/Total_quack_job_(Gameplay)_1.2.wav"),
@@ -25,19 +25,21 @@ func _ready():
 	randomize()
 	set_volume()
 
-func play_random_music():
+func play_gameplay_music():
 	music_player.stop()
 	var temp = floor(rand_range(0, possible_music.size()))
 	music_player.stream = possible_music[temp]
 	music_player.play()
 
 func play_pause_music():
+	music_player.stop()
 	music_player.stream = pause_theme
 	music_player.play()
 
 func stop_pause_music():
 	music_player.stop()
-		
+	play_gameplay_music()
+
 func play_chirp_calm():
 	sound_player.stream = chirp_calm
 	sound_player.play()

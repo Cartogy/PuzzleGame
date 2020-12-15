@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://icon_gd.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/messe_dusseldorf/MesseDuesseldorf-O1d3.ttf" type="DynamicFontData" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Project/UI/Buttons/MainButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Project/UI/Image_ducks.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Project/UI/MainMenu/MainMenu.gd" type="Script" id=10]
+[ext_resource path="res://Project/Textures/UI/Controls2.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 43
@@ -48,6 +49,7 @@ margin_bottom = 600.0
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
 margin_right = 1024.0
 margin_bottom = 191.0
+size_flags_vertical = 0
 custom_constants/margin_top = 57
 custom_constants/margin_left = 513
 custom_constants/margin_bottom = 70
@@ -149,16 +151,17 @@ margin_bottom = 182.0
 
 [node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 468.0
+margin_top = 10.0
 margin_right = 1024.0
-margin_bottom = 405.0
+margin_bottom = 179.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer"]
 margin_left = 278.0
-margin_top = 202.0
+margin_top = 84.0
 margin_right = 278.0
-margin_bottom = 202.0
+margin_bottom = 84.0
 custom_constants/margin_right = -99
 custom_constants/margin_top = -119
 
@@ -172,3 +175,7 @@ margin_top = -119.0
 margin_right = 99.0
 margin_bottom = 0.0
 size_flags_stretch_ratio = 0.0
+
+[node name="Controls2" type="Sprite" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+position = Vector2( 645.312, 236.865 )
+texture = ExtResource( 11 )

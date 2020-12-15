@@ -18,9 +18,11 @@ func _input(event):
 		change_state()
 		
 func enable_game():
+	SoundManager.stop_pause_music()
 	set_level(false)
 	
 func disable_game():
+	SoundManager.play_pause_music()
 	set_level(true)
 	
 func set_level(status: bool):
@@ -33,11 +35,9 @@ func change_state():
 			add_child(pause_ui)
 			current_state = World_State.PAUSE
 			disable_game()
-			SoundManager.play_pause_music()
 			
 		World_State.PAUSE:
 			remove_child(pause_ui)
 			current_state = World_State.INGAME
 			enable_game()
-			SoundManager.stop_pause_music()
 
