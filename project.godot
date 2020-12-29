@@ -110,9 +110,9 @@ config/icon="res://icon_gd.png"
 
 [autoload]
 
-Steering="*res://Project/TestingGround/src/Autoload/Steering.gd"
 ConfigManager="*res://Project/Autoload/ConfigManager.gd"
 SoundManager="*res://Project/Autoload/SoundManager.tscn"
+Steering="*res://Project/TestingGround/src/Autoload/Steering.gd"
 
 [display]
 

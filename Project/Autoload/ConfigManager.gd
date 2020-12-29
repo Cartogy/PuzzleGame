@@ -25,6 +25,7 @@ func load_config():
 	var err = config.load(path)
 	if err != OK:
 		return default_options
+
 	var options = {}
 	sound_on = config.get_value("audio", "sound", default_options.sound)
 	music_on = config.get_value("audio", "music", default_options.music)

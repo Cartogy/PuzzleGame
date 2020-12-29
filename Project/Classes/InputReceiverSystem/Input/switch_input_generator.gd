@@ -44,6 +44,7 @@ func change_state():
 	
 func turn_on():
 	$AnimatedSprite.play("On")
+	SoundManager.play_game_switch()
 	
 func turn_off():
 	$AnimatedSprite.play("Off")

@@ -9,8 +9,8 @@ var mute_on_button
 var mute_off_button
 
 # Allows for simple toggle behaviour
-enum MuteState { OFF, ON }
-var current_state
+#enum MuteState { OFF, ON }
+#var current_state
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,24 +24,41 @@ func _ready():
 	mute_on_button.set_margin(MARGIN_RIGHT, mute_off_button.get_margin(MARGIN_RIGHT))
 	mute_on_button.set_margin(MARGIN_LEFT, mute_off_button.get_margin(MARGIN_LEFT))
 
-	current_state = MuteState.OFF
+#	current_state = MuteState.OFF
+	
+	for _i in self.get_children():
+		print_debug(_i)
+		print_debug("mute_on_button: ",mute_on_button)
+		print_debug("mute_off_button: ",mute_off_button)
 
 func toggle():
-	match current_state:
-		MuteState.OFF:
+	if SoundManager.audio_on == false:
+#	match current_state:
+#		MuteState.OFF:
+			for _i in self.get_children():
+				print_debug(_i)
 			remove_child(mute_off_button)
 			add_child(mute_on_button)
-			current_state = MuteState.ON
+#			current_state = MuteState.ON
 			volume_toggle()
-		MuteState.ON:
+#		MuteState.ON:
+	else:
+			for _i in self.get_children():
+				print_debug(_i)
 			remove_child(mute_on_button)
 			add_child(mute_off_button)
-			current_state = MuteState.OFF
+#			current_state = MuteState.OFF
 			volume_toggle()
 
 func volume_toggle():
 	ConfigManager.sound_on = !ConfigManager.sound_on
 	ConfigManager.music_on = !ConfigManager.music_on
+	SoundManager.audio_update()
 	ConfigManager.save_config()
 	SoundManager.set_volume()
 	SoundManager.play_ui_button()
+	print_debug("mute_on_button: ",mute_on_button)
+	print_debug("mute_off_button: ",mute_off_button)
+#	print_debug("Sound on? ",ConfigManager.sound_on)
+#	print_debug("Music on? ",ConfigManager.music_on)
+#	print_debug("Audio on? ",SoundManager.audio_on)
