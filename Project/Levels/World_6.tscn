@@ -92,7 +92,7 @@ hold = true
 
 [node name="WorldComplete" parent="." index="4"]
 position = Vector2( 48, 160 )
-next_world = "res://Project/Levels/World_7.tscn"
+next_world = "res://Project/Levels/World_6b.tscn"
 
 [node name="CollisionShape2D" parent="WorldComplete" index="0"]
 shape = SubResource( 1 )
@@ -100,7 +100,7 @@ shape = SubResource( 1 )
 [node name="WorldComplete2" parent="." index="5" instance=ExtResource( 4 )]
 position = Vector2( 976, 448 )
 script = SubResource( 2 )
-next_world = "res://Project/Levels/World_7.tscn"
+next_world = "res://Project/Levels/World_6b.tscn"
 
 [node name="CollisionShape2D" parent="WorldComplete2" index="0"]
 shape = SubResource( 3 )

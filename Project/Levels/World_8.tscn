@@ -124,12 +124,12 @@ inputs_to_receive = [ NodePath("../../Switches/Switch_2") ]
 position = Vector2( 64, 64 )
 
 [node name="WorldComplete" parent="." index="5"]
-position = Vector2( 512, 0 )
+visible = false
+position = Vector2( 512, 16 )
 script = SubResource( 1 )
 next_world = "res://Project/Levels/World_9.tscn"
 
 [node name="CollisionShape2D" parent="WorldComplete" index="0"]
-position = Vector2( 0, 16.0181 )
 shape = SubResource( 2 )
 
 [node name="TileMap" parent="." index="6"]

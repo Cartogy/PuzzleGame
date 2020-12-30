@@ -14,7 +14,7 @@
 
 [node name="FlockManager" type="Node"]
 script = ExtResource( 4 )
-push_pull_force = 10.0
+push_pull_force = 100.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 7 )
