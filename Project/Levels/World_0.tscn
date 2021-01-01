@@ -19,3 +19,4 @@ pause_mode = 1
 [node name="WorldComplete" parent="." instance=ExtResource( 2 )]
 
 [node name="TileMap" parent="." instance=ExtResource( 5 )]
+collision_mask = 2147483651

@@ -23,6 +23,7 @@ animations = [ {
 extents = Vector2( 3.01977, 7.9579 )
 
 [node name="Barrier" type="Node2D"]
+z_index = -1
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

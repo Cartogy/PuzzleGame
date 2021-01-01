@@ -179,6 +179,14 @@ pause_menu={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="duck"
+2d_physics/layer_2="duckling"
+2d_physics/layer_3="obstacles"
+2d_physics/layer_4="worldComplete"
+2d_physics/layer_5="tilemap"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

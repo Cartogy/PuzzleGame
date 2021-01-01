@@ -1,35 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="GDScript" id=1]
-script/source = "extends Area2D
-
-signal level_complete(next_level)
-
-export (String, FILE, \"*.tscn\") var next_world
-
-var game
-
-func _ready():
-	pass
-
-func _physics_process(delta):
-	var bodies = get_overlapping_bodies()
-	for body in bodies:
-		if body.name == \"Duck\":
-			if next_world:
-				if game:
-					emit_signal(\"level_complete\", next_world)
-				else:
-					get_tree().change_scene(next_world)
-#			else: #Go back to menu?
-#				pass
-"
+[ext_resource path="res://Project/Levels/WorldComplete.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 192, 32 )
 
 [node name="WorldComplete" type="Area2D"]
-script = SubResource( 1 )
+collision_layer = 8
+collision_mask = 3
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }

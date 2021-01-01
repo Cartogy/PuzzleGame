@@ -21,6 +21,7 @@ animations = [ {
 extents = Vector2( 6.0763, 5.22391 )
 
 [node name="Switch" type="Node2D"]
+scale = Vector2( 4, 4 )
 z_index = -2
 script = ExtResource( 1 )
 
