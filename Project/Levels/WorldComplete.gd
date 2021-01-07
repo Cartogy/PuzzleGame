@@ -46,6 +46,8 @@ func _on_World_Complete():
 			duckPass = true
 		if body.get_parent().name == "Flock":
 			ducklingPass = true
+		print_debug("duckPass: ",duckPass)
+		print_debug("ducklingPass: ",ducklingPass)
 	if pass_critera == 0:
 		duckAndDucklingPass()
 	else:

@@ -7,7 +7,8 @@ var initial_direction: Vector2
 onready var push_pull_force = get_node("../..").push_pull_force
 
 func enter():
-	print_debug(initial_direction)
+#	print_debug(initial_direction)
+	pass
 	
 func exit():
 	pass
@@ -15,9 +16,9 @@ func exit():
 func tick(delta):
 	#var box_position = box.global_position
 	var direction: Vector2 = get_parent().get_parent().direction_input.get_input()
-	print_debug("Forward:"+ str(initial_direction))
+#	print_debug("Forward:"+ str(initial_direction))
 	var dot_value: float = direction.dot(initial_direction)
-	print_debug(dot_value)	
+#	print_debug(dot_value)	
 	
 	#get_parent().get_parent().update_forward(direction)
 	

@@ -16,6 +16,16 @@ visible = false
 [node name="DuckControl" parent="." instance=ExtResource( 1 )]
 pause_mode = 1
 
+[node name="Keys" type="Node" parent="."]
+
+[node name="Locks" type="Node" parent="."]
+
+[node name="Switches" type="Node" parent="."]
+
+[node name="Barriers" type="Node" parent="."]
+
+[node name="Boxes" type="Node" parent="."]
+
 [node name="WorldComplete" parent="." instance=ExtResource( 2 )]
 
 [node name="TileMap" parent="." instance=ExtResource( 5 )]
