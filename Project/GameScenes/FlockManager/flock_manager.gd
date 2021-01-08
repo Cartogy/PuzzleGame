@@ -12,7 +12,7 @@ onready var target: Node2D = get_node(target_path)
 export var target_path: = NodePath()
 
 export var area_radius: float
-export var push_pull_force: float
+export var push_pull_force: float = 100
 
 func _ready():
 	direction_input = get_node("DirectionInput")
