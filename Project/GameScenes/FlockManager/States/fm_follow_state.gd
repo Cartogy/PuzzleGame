@@ -12,9 +12,10 @@ func handle_input(event):
 func enter():
 	#print_debug("[Flocking Manager] FOllowing")
 	
-	assert(flock.entities.size() > 0)
-	for e in flock.entities:
-		e.follow()
+	
+	if flock.entities.size() > 0:
+		for e in flock.entities:
+			e.follow()
 	
 func tick(delta):
 	pass
