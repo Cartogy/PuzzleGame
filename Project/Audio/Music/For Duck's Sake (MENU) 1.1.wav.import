@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/For Duck's Sake (MENU) 1.1.wav-2d2abe06523912754705a409253b5c97.sample"
+
+[deps]
+
+source_file="res://Project/Audio/Music/For Duck's Sake (MENU) 1.1.wav"
+dest_files=[ "res://.import/For Duck's Sake (MENU) 1.1.wav-2d2abe06523912754705a409253b5c97.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

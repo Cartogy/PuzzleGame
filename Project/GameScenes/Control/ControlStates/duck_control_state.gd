@@ -33,4 +33,4 @@ func get_state_type():
 
 func play_transition_sound():
 	pass
-	#SoundManager.play_chirp_stress() 
+	SoundManager.play_chirp_calm() 

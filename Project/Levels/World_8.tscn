@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Project/Levels/World_0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Project/GameScenes/Switch/Switch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Project/GameScenes/Receivers/Barrier/Barrier.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Project/GameScenes/Box/Box.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Project/GameScenes/Unit/BabyDuckling.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 64, 32 )
+extents = Vector2( 64, 48 )
 
 [node name="World_8" instance=ExtResource( 1 )]
 
@@ -16,14 +17,14 @@ position = Vector2( 927, 513 )
 [node name="Duck" parent="DuckControl" index="0"]
 position = Vector2( 52.7557, 1.1225 )
 
-[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 94.1391, 128.224 )
+[node name="Unit 0" parent="DuckControl/FlockManager/Flock" index="0" instance=ExtResource( 5 )]
+position = Vector2( 151, 63 )
 
-[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 151.868, 63.4446 )
+[node name="Unit 1" parent="DuckControl/FlockManager/Flock" index="1" instance=ExtResource( 5 )]
+position = Vector2( 94, 128 )
 
-[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 29.4458, 188.761 )
+[node name="Unit 2" parent="DuckControl/FlockManager/Flock" index="2" instance=ExtResource( 5 )]
+position = Vector2( 29, 188 )
 
 [node name="Switch_1" parent="Switches" index="0" instance=ExtResource( 2 )]
 position = Vector2( 960, 48 )
@@ -87,11 +88,11 @@ inputs_to_receive = [ NodePath("../../Switches/Switch_2") ]
 [node name="Box" parent="Boxes" index="0" instance=ExtResource( 4 )]
 position = Vector2( 64, 64 )
 
-[node name="WorldComplete" parent="." index="7"]
-position = Vector2( 512, 16 )
+[node name="WorldCompleteArea" parent="WorldComplete" index="0"]
+position = Vector2( 512, 32 )
 next_world = "res://Project/Levels/World_9.tscn"
 
-[node name="CollisionShape2D" parent="WorldComplete" index="0"]
+[node name="CollisionShape2D" parent="WorldComplete/WorldCompleteArea" index="0"]
 shape = SubResource( 1 )
 
 [node name="TileMap" parent="." index="8"]
@@ -101,4 +102,4 @@ tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65534, 1, 0, -6
 
 [editable path="DuckControl/FlockManager"]
 
-[editable path="WorldComplete"]
+[editable path="WorldComplete/WorldCompleteArea"]

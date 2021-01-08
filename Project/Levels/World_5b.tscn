@@ -1,25 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Project/GameScenes/Switch/Switch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Project/Levels/World_0.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Project/GameScenes/Receivers/Barrier/Barrier.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Project/GameScenes/Unit/BabyDuckling.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 50, 50 )
+extents = Vector2( 64, 64 )
 
 [node name="World_5b" instance=ExtResource( 2 )]
 
 [node name="DuckControl" parent="." index="1"]
 position = Vector2( 864, 304 )
 
-[node name="Unit 3" parent="DuckControl/FlockManager/Flock" index="0"]
-position = Vector2( 315.022, 304 )
+[node name="Unit 0" parent="DuckControl/FlockManager/Flock" index="0" instance=ExtResource( 4 )]
+position = Vector2( 315, 304 )
 
-[node name="Unit 4" parent="DuckControl/FlockManager/Flock" index="1"]
-position = Vector2( 295.749, 282 )
+[node name="Unit 1" parent="DuckControl/FlockManager/Flock" index="1" instance=ExtResource( 4 )]
+position = Vector2( 295, 282 )
 
-[node name="Unit 5" parent="DuckControl/FlockManager/Flock" index="2"]
-position = Vector2( 295.749, 320 )
+[node name="Unit 2" parent="DuckControl/FlockManager/Flock" index="2" instance=ExtResource( 4 )]
+position = Vector2( 295, 320 )
 
 [node name="Switch" parent="Switches" index="0" instance=ExtResource( 1 )]
 position = Vector2( 256, 304 )
@@ -43,11 +44,11 @@ scale = Vector2( 7, 10 )
 inputs_to_receive = [ NodePath("../../Switches/Switch") ]
 hold = true
 
-[node name="WorldComplete" parent="." index="7"]
-position = Vector2( 80, 300 )
+[node name="WorldCompleteArea" parent="WorldComplete" index="0"]
+position = Vector2( 80, 304 )
 next_world = "res://Project/Levels/World_6.tscn"
 
-[node name="CollisionShape2D" parent="WorldComplete" index="0"]
+[node name="CollisionShape2D" parent="WorldComplete/WorldCompleteArea" index="0"]
 shape = SubResource( 1 )
 
 [node name="TileMap" parent="." index="8"]
@@ -57,4 +58,4 @@ tile_data = PoolIntArray( 0, 9, 0, 1, 9, 0, 2, 9, 0, 3, 9, 0, 4, 9, 0, 5, 9, 0, 
 
 [editable path="DuckControl/FlockManager"]
 
-[editable path="WorldComplete"]
+[editable path="WorldComplete/WorldCompleteArea"]
