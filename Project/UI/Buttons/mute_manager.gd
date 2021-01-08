@@ -59,6 +59,3 @@ func volume_toggle():
 	SoundManager.play_ui_button()
 	print_debug("mute_on_button: ",mute_on_button)
 	print_debug("mute_off_button: ",mute_off_button)
-#	print_debug("Sound on? ",ConfigManager.sound_on)
-#	print_debug("Music on? ",ConfigManager.music_on)
-#	print_debug("Audio on? ",SoundManager.audio_on)

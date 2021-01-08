@@ -11,12 +11,10 @@ func _ready():
 		
 func duckAndDucklingPass(next_world):
 	if duckPass and ducklingPass:
-		print_debug("Both entered")
 		change_world(next_world)
 
 func duckOrDucklingPass(next_world):
 	if duckPass or ducklingPass:
-		print_debug("Either entered")
 		change_world(next_world)
 	
 func change_world(next_world):
@@ -33,8 +31,6 @@ func _on_WorldComplete_entered(body,pass_critera,next_world):
 	if pass_critera == 0:
 		duckAndDucklingPass(next_world)
 	elif pass_critera == 1:
-		duckOrDucklingPass(next_world)
-	else:
 		duckOrDucklingPass(next_world)
 
 func _on_WorldComplete_exited(body):
