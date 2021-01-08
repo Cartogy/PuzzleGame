@@ -90,6 +90,8 @@ func play_theme():
 	if current_state != Music_State.MAIN_MENU:
 		music_player.stream = main_theme
 		music_player.play()
+		print_debug("play theme")
+		
 		
 		current_state = Music_State.MAIN_MENU
 
