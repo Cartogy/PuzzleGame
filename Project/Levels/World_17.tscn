@@ -78,10 +78,10 @@ position = Vector2( 384, 383 )
 position = Vector2( 640, 383 )
 
 [node name="Switch_8" parent="Switches" index="7" instance=ExtResource( 2 )]
-position = Vector2( 352, 511 )
+position = Vector2( 320, 511 )
 
 [node name="Switch_9" parent="Switches" index="8" instance=ExtResource( 2 )]
-position = Vector2( 672, 511 )
+position = Vector2( 704, 511 )
 
 [node name="Switch_10" parent="Switches" index="9" instance=ExtResource( 2 )]
 position = Vector2( 864, 511 )
@@ -133,13 +133,13 @@ hold = true
 position = Vector2( 432, 511 )
 scale = Vector2( 3, 4 )
 current_state = 1
-inputs_to_receive = [ NodePath("../../Switches/Switch_9") ]
+inputs_to_receive = [ NodePath("../../Switches/Switch_8") ]
 
 [node name="Barrier_9" parent="Barriers" index="8" instance=ExtResource( 3 )]
 position = Vector2( 592, 511 )
 scale = Vector2( 3, 4 )
 current_state = 1
-inputs_to_receive = [ NodePath("../../Switches/Switch_8") ]
+inputs_to_receive = [ NodePath("../../Switches/Switch_9") ]
 
 [node name="WorldCompleteArea" parent="WorldComplete" index="0"]
 position = Vector2( 512, 32 )
